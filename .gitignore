@@ -1,0 +1,6 @@
+shots/
+.DS_Store
+__pycache__/
+*.pyc
+# the spec names the student and local paths: it lives in ../private, never in the public build
+DESIGN.md

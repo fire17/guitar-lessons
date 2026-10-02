@@ -1,0 +1,128 @@
+/* מספרים על הצוואר: tokens (DESIGN §16) */
+:root {
+  color-scheme: light;
+  --bg: #F6EEE2;
+  --surface: #FFFAF2;
+  --surface-2: #EFE3D2;
+  --track: #E2D2BD;
+  --line: #E2D2BD;
+  --ink: #2B1E15;
+  --ink-2: #6A5242;
+  --wood: #8A5A35;
+  --wood-deep: #5B3A22;
+  --brass: #C29433;
+  --brass-strong: #9E6E1C;
+  --brass-ink: #7D5713;
+  --gold-hi: #E9C46A;
+  --success: #2F7044;
+  --success-tint: #E3F0E2;
+  --error: #A8402F;
+  --error-tint: #F6E1DC;
+  --info: #2C6873;
+  --focus: #7D5713;
+  --on-brass: #2B1E15;
+  --on-status: #FFFFFF;
+  --overlay: rgb(255 255 255 / .55);
+  --card-shadow: 0 1px 2px rgb(43 30 21 / .06), 0 8px 24px rgb(43 30 21 / .06);
+  --card-border: transparent;
+  --scrim: rgb(27 18 12 / .45);
+
+  /* fretboard + degrees: same in both themes (§16.2) */
+  --board-1: #3A2416;
+  --board-2: #4A2E1C;
+  --fret: #CFC6B6;
+  --nut: #EFE6D8;
+  --string-plain: #DAD5CC;
+  --string-wound: #B48F58;
+  --inlay: #EDE6DA;
+  --deg-1: #E3B65A;
+  --deg-2: #9FB7C9;
+  --deg-3: #C9A2C4;
+  --deg-4: #E39A6B;
+  --deg-5: #F2EBDD;
+  --deg-6: #7FC0A6;
+  --deg-7: #D98C8C;
+  --deg-ink: #1B120C;
+  --wood-text: #F4E7D4;
+
+  /* type */
+  --font-ui: "Rubik", "Assistant", "Arial Hebrew", "Noto Sans Hebrew", system-ui, sans-serif;
+  --font-body: "Assistant", "Rubik", "Arial Hebrew", "Noto Sans Hebrew", system-ui, sans-serif;
+  --fs-13: .8125rem;
+  --fs-15: .9375rem;
+  --fs-17: 1.0625rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-30: 1.875rem;
+  --fs-40: 2.5rem;
+  --fs-48: 3rem;
+
+  /* shape */
+  --r-chip: 999px;
+  --r-btn: 14px;
+  --r-card: 20px;
+  --r-sheet: 24px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --topbar-h: 56px;
+  --tabbar-h: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #16100B;
+    --surface: #211811;
+    --surface-2: #2C2017;
+    --track: #3B2C1F;
+    --line: #3B2C1F;
+    --ink: #F4E7D4;
+    --ink-2: #C2AB91;
+    --wood: #A8774E;
+    --wood-deep: #0D0906;
+    --brass: #E3B65A;
+    --brass-strong: #E3B65A;
+    --brass-ink: #E3B65A;
+    --focus: #E3B65A;
+    --gold-hi: #F2D27E;
+    --success: #7CC68A;
+    --success-tint: #1E3323;
+    --error: #EE8B79;
+    --error-tint: #3A1E19;
+    --info: #7FC0CA;
+    --on-brass: #16100B;
+    --on-status: #16100B;
+    --overlay: rgb(0 0 0 / .28);
+    --card-shadow: none;
+    --card-border: #3B2C1F;
+    --scrim: rgb(0 0 0 / .6);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16100B;
+  --surface: #211811;
+  --surface-2: #2C2017;
+  --track: #3B2C1F;
+  --line: #3B2C1F;
+  --ink: #F4E7D4;
+  --ink-2: #C2AB91;
+  --wood: #A8774E;
+  --wood-deep: #0D0906;
+  --brass: #E3B65A;
+  --brass-strong: #E3B65A;
+  --brass-ink: #E3B65A;
+  --focus: #E3B65A;
+  --gold-hi: #F2D27E;
+  --success: #7CC68A;
+  --success-tint: #1E3323;
+  --error: #EE8B79;
+  --error-tint: #3A1E19;
+  --info: #7FC0CA;
+  --on-brass: #16100B;
+  --on-status: #16100B;
+  --overlay: rgb(0 0 0 / .28);
+  --card-shadow: none;
+  --card-border: #3B2C1F;
+  --scrim: rgb(0 0 0 / .6);
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>מספרים על הצוואר</title>
+  <meta name="description" content="קורס גיטרה אינטראקטיבי בעברית: הרמוניה במספרים, משפחות אקורדים, מהלכים, המינור הטבעי והצוואר, מתוך השיעורים.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6EEE2">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16100B">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Rubik:wght@500;600;700;800&display=swap" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="preload" href="data/lessons/index.json" as="fetch" crossorigin>
+  <!-- modulepreload: the whole module graph in one round trip (tools/check.py keeps this list complete) -->
+  <link rel="modulepreload" href="js/main.js">
+  <link rel="modulepreload" href="js/dom.js">
+  <link rel="modulepreload" href="js/data.js">
+  <link rel="modulepreload" href="js/store.js">
+  <link rel="modulepreload" href="js/router.js">
+  <link rel="modulepreload" href="js/audio.js">
+  <link rel="modulepreload" href="js/session.js">
+  <link rel="modulepreload" href="js/theme.js">
+  <link rel="modulepreload" href="js/theory.js">
+  <link rel="modulepreload" href="js/sheet.js">
+  <link rel="modulepreload" href="js/fretboard.js">
+  <link rel="modulepreload" href="js/teacher.js">
+  <link rel="modulepreload" href="js/exercises/choice.js">
+  <link rel="modulepreload" href="js/exercises/clips.js">
+  <link rel="modulepreload" href="js/exercises/order.js">
+  <link rel="modulepreload" href="js/exercises/buckets.js">
+  <link rel="modulepreload" href="js/exercises/fret.js">
+  <link rel="modulepreload" href="js/exercises/learn.js">
+  <link rel="modulepreload" href="js/views/path.js">
+  <link rel="modulepreload" href="js/views/notes.js">
+  <link rel="modulepreload" href="js/views/ask.js">
+  <link rel="modulepreload" href="js/views/homework.js">
+  <link rel="modulepreload" href="js/views/tools.js">
+  <link rel="modulepreload" href="js/views/drill.js">
+  <link rel="modulepreload" href="js/views/songbook.js">
+  <link rel="modulepreload" href="js/views/me.js">
+  <link rel="modulepreload" href="js/views/dev.js">
+  <script>
+    /* error log for #/dev and tests */
+    window.__errors = [];
+    addEventListener("error", function (e) { window.__errors.push(String(e.message)); });
+    addEventListener("unhandledrejection", function (e) { window.__errors.push("rejection: " + String(e.reason)); });
+    /* theme before first paint (no flash) */
+    try {
+      var s = JSON.parse(localStorage.getItem("gl.v1") || "null");
+      var t = s && s.settings && s.settings.theme;
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">דלג לתוכן</a>
+  <header class="topbar" id="topbar" hidden></header>
+  <div id="banner"></div>
+  <main id="main" tabindex="-1">
+    <div class="boot" id="boot">
+      <div class="boot-pick" aria-hidden="true"></div>
+      <p>טוען את השיעורים…</p>
+    </div>
+  </main>
+  <nav class="tabbar" id="tabbar" aria-label="ניווט ראשי" hidden></nav>
+  <div id="sheets"></div>
+  <div id="toasts" aria-live="polite"></div>
+  <div class="sr-only" id="live" aria-live="polite"></div>
+  <noscript><p style="padding:24px">האפליקציה צריכה JavaScript.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

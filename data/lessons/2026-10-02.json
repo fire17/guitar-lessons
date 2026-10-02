@@ -1,0 +1,5930 @@
+{
+ "id": "2026-10-02",
+ "date": "2026-10-02",
+ "lesson_number": 1,
+ "title_he": "שיעור 1 · הרמוניה במספרים",
+ "gist_he": "יונתן בנה את כל השיעור על מספרים ולא על שמות של אקורדים: האקורדים של סולם מז'ור ושלושת התפקידים שלהם — טוניקה, סובדומיננטה, דומיננטה; מהלך ארבעת האקורדים 1-5-6-4 וחלק ב' שלו, 6-4-1-5; איך המינור הטבעי יוצא מהמז'ור — שני שמות תווים אחורה, תמיד טון וחצי; היפוך מרווחים, למה הקווינטה הכי הרמונית, ודומיננטה משנית. והמטרה: לראות את היחסים על הצוואר, לא לחשב אותם. 'תפסת סופר מהר' (⏱ 1:31:14).",
+ "teacher_he": "יונתן",
+ "student_he": "תמי",
+ "source": {
+  "lesson_md": "LESSON.md",
+  "transcript": "תמלול אוטומטי (whisper), חותמות זמן ±כמה שניות"
+ },
+ "skills": [
+  {
+   "id": "scale-qualities",
+   "title_he": "סוגי האקורדים בסולם",
+   "unit": "scale-chords"
+  },
+  {
+   "id": "degree-chords",
+   "title_he": "דרגה ↔ אקורד",
+   "unit": "scale-chords"
+  },
+  {
+   "id": "ear-quality",
+   "title_he": "אוזן: סוג אקורד",
+   "unit": "scale-chords"
+  },
+  {
+   "id": "families",
+   "title_he": "משפחות תפקודיות",
+   "unit": "families"
+  },
+  {
+   "id": "ear-degree",
+   "title_he": "אוזן: דרגות",
+   "unit": "families"
+  },
+  {
+   "id": "progressions",
+   "title_he": "מהלכים 1-4-5 · 1-5-6-4 · 6-4-1-5",
+   "unit": "progressions"
+  },
+  {
+   "id": "fretboard-low",
+   "title_he": "מפת הדרגות על מיתרים 6 ו-5",
+   "unit": "fretboard"
+  },
+  {
+   "id": "harmony-melody",
+   "title_he": "הרמוניה מול מלודיה · ה-1 בחוץ",
+   "unit": "harmony-together"
+  },
+  {
+   "id": "harmonic-rhythm",
+   "title_he": "מקצב הרמוני מול דאבל טיים",
+   "unit": "harmony-together"
+  },
+  {
+   "id": "modes",
+   "title_he": "מודוסים",
+   "unit": "relative-minor"
+  },
+  {
+   "id": "relative-minor",
+   "title_he": "מינור טבעי מקביל",
+   "unit": "relative-minor"
+  },
+  {
+   "id": "spelling",
+   "title_he": "כתיב וכיוון מושווה (B#, C♭)",
+   "unit": "relative-minor"
+  },
+  {
+   "id": "intervals",
+   "title_he": "היפוך מרווחים",
+   "unit": "intervals"
+  },
+  {
+   "id": "fifth",
+   "title_he": "הקווינטה: 'פחות שלוש', 3:2, פאוור-קורד",
+   "unit": "intervals"
+  },
+  {
+   "id": "dominant",
+   "title_he": "דומיננטה ודומיננטה משנית",
+   "unit": "dominant"
+  }
+ ],
+ "exercise_schema": {
+  "common": "id, type, skill (skills[].id), difficulty 1-3, question_he, explain_he (shown after answering; the teacher-agent re-explanation seed), source_ts ('MM:SS' or 'H:MM:SS' into the lesson) and/or bonus:true. Exercises are ordered easy→hard inside each unit. Shuffle options at render time; answers are stored by VALUE, never by index.",
+  "mcq": "options[str], answer(str). Optional clips[] (play buttons) for listening questions.",
+  "degree_to_chord": "key, degree(1-7), options[str], answer(str chord name; ø = half-diminished m7♭5).",
+  "chord_to_degree": "key, chord, options[int], answer(int).",
+  "family_sort": "key, buckets[{id,label_he}], items[{chord, degree, family(bucket id), also_accept?[bucket ids]}]. Correct when every item lands in family or one of also_accept.",
+  "relative_minor": "direction 'major_to_minor'|'minor_to_major', given, options[str], answer(str).",
+  "fretboard_find": "tuning (string 6→1, standard E A D G B E), strings[] allowed to tap (6 = low E), frets [min,max], target {note} or {key, degree, below_root?}, root_marker {string,fret}|null (draw it), answers[{string,fret}] — ANY one tap from answers is correct.",
+  "progression_build": "key, pattern[int], pool[str] (shuffle; includes distractors), answer[str] in order.",
+  "ear_degree": "key, clips[], options[int], answer(int). A 1-4-5-1 cadence in the key (first event = tonic), then the target chord as the LAST event.",
+  "ear_quality": "clips[], options[str], answer(str).",
+  "interval_inversion": "given(str), options[str], answer(str).",
+  "fill_blank": "text_he contains '___'; options[str] word bank; answer(str).",
+  "clips": "[{label_he?, bpm, strum_every_beat(bool: re-pluck the chord on every beat so tempo is audible; false = one pluck per event), events[{label, notes[MIDI ints, 60 = middle C], beats}]}]. Synthesize with Karplus-Strong; strum notes low→high ~15-25 ms apart. freq = 440·2^((midi−69)/12)."
+ },
+ "units": [
+  {
+   "id": "scale-chords",
+   "title_he": "אקורדי הסולם המז'ורי",
+   "icon": "🎼",
+   "source_ts": "24:22",
+   "learn": {
+    "table": "scale-qualities",
+    "key": "C"
+   },
+   "concept_he": "המורה התחיל דווקא מהמז'ור, 'בכוונה', כי המינור יוצא ממנו (⏱ 24:39). בונים אקורד על כל דרגה ומקבלים תבנית שלא משתנה בשום סולם מז'ור: מז'ור · מינור · מינור · מז'ור · מז'ור · מינור · חצי מוקטן (⏱ 31:02). בדו מז'ור זה רק הקלידים הלבנים: C Dm Em F G Am Bø. ב-G: G Am Bm C D Em F#ø (⏱ 26:35). את דרגה 7 צריך אצבוע של חצי מוקטן — שם 'נדפקים' (⏱ 28:17).",
+   "exercises": [
+    {
+     "id": "scale-chords-01",
+     "type": "mcq",
+     "skill": "scale-qualities",
+     "difficulty": 1,
+     "source_ts": "31:02",
+     "question_he": "באיזו תבנית בנויים האקורדים של כל סולם מז'ור, מדרגה 1 עד 7?",
+     "options": [
+      "מז'ור · מינור · מינור · מז'ור · מז'ור · מינור · חצי מוקטן",
+      "מז'ור · מז'ור · מינור · מז'ור · מינור · מינור · חצי מוקטן",
+      "מינור · מז'ור · מז'ור · מינור · מינור · מז'ור · חצי מוקטן",
+      "מז'ור · מינור · מז'ור · מז'ור · מינור · מינור · מוקטן"
+     ],
+     "answer": "מז'ור · מינור · מינור · מז'ור · מז'ור · מינור · חצי מוקטן",
+     "explain_he": "זה הסיכום מהשיעור: 'מז'ור מינור מינור, מז'ור מז'ור מינור, חצי מוקטן' (⏱ 31:02). התבנית זהה בכל סולם מז'ור — רק השמות זזים."
+    },
+    {
+     "id": "scale-chords-02",
+     "type": "mcq",
+     "skill": "scale-qualities",
+     "difficulty": 1,
+     "source_ts": "04:41",
+     "question_he": "אילו שלוש דרגות בסולם מז'ור הן אקורדים מז'וריים?",
+     "options": [
+      "1, 4, 5",
+      "1, 3, 5",
+      "2, 4, 6",
+      "1, 5, 6"
+     ],
+     "answer": "1, 4, 5",
+     "explain_he": "'ראשונה, רביעית, חמישית — מז'וריות' (⏱ 04:41). 2, 3 ו-6 מינוריות, ו-7 חצי מוקטן."
+    },
+    {
+     "id": "scale-chords-03",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 1,
+     "source_ts": "24:39",
+     "key": "C",
+     "degree": 2,
+     "question_he": "בסולם C מז'ור — איזה אקורד יושב על דרגה 2?",
+     "options": [
+      "Dm",
+      "D",
+      "Dø",
+      "Em"
+     ],
+     "answer": "Dm",
+     "explain_he": "דו מז'ור הוא רק הקלידים הלבנים (⏱ 24:31). על D בונים אקורד מהתווים הלבנים: D-F-A — מינור. Dm."
+    },
+    {
+     "id": "scale-chords-04",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 1,
+     "source_ts": "24:39",
+     "key": "C",
+     "degree": 6,
+     "question_he": "בסולם C מז'ור — איזה אקורד יושב על דרגה 6?",
+     "options": [
+      "Am",
+      "A",
+      "Aø",
+      "F"
+     ],
+     "answer": "Am",
+     "explain_he": "על A בתווים לבנים: A-C-E — מינור. Am, 'הבית העצוב' (⏱ 20:47)."
+    },
+    {
+     "id": "scale-chords-05",
+     "type": "fill_blank",
+     "skill": "scale-qualities",
+     "difficulty": 1,
+     "source_ts": "25:32",
+     "question_he": "השלם את החסר",
+     "text_he": "על הדרגה ה-___ בסולם מז'ור יושב אקורד חצי מוקטן.",
+     "options": [
+      "7",
+      "5",
+      "6",
+      "3"
+     ],
+     "answer": "7",
+     "explain_he": "על דרגה 7 יושב חצי מוקטן (m7♭5): בדו זה Bø (⏱ 25:32). אחרי שניגנת אותו אמרת, כנראה, שהוא 'ביקש מאוד להיפתר' (⏱ 25:54)."
+    },
+    {
+     "id": "scale-chords-06",
+     "type": "ear_quality",
+     "skill": "ear-quality",
+     "difficulty": 1,
+     "source_ts": "31:02",
+     "question_he": "איזה סוג אקורד שמעת?",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      "מז'ור",
+      "מינור",
+      "חצי מוקטן"
+     ],
+     "answer": "מז'ור",
+     "explain_he": "מז'ור נשמע 'פתוח' ובהיר. דרגות 1, 4, 5 בכל סולם מז'ור הן כאלה. (זה היה C.)"
+    },
+    {
+     "id": "scale-chords-07",
+     "type": "ear_quality",
+     "skill": "ear-quality",
+     "difficulty": 1,
+     "source_ts": "31:02",
+     "question_he": "איזה סוג אקורד שמעת?",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      "מז'ור",
+      "מינור",
+      "חצי מוקטן"
+     ],
+     "answer": "מינור",
+     "explain_he": "מינור נשמע 'עצוב' יותר — הטרצה נמוכה בחצי טון. כמו דרגה 6, 'הבית העצוב' (⏱ 20:47). (זה היה Am.)"
+    },
+    {
+     "id": "scale-chords-08",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "26:35",
+     "key": "G",
+     "degree": 3,
+     "question_he": "בסולם G מז'ור — איזה אקורד יושב על דרגה 3?",
+     "options": [
+      "Bm",
+      "B",
+      "Bø",
+      "C"
+     ],
+     "answer": "Bm",
+     "explain_he": "בסולם G מז'ור: 1=G · 2=Am · 3=Bm · 4=C · 5=D · 6=Em · 7=F#ø. דרגה 3 היא Bm — לפי התבנית מז'ור·מינור·מינור·מז'ור·מז'ור·מינור·חצי מוקטן."
+    },
+    {
+     "id": "scale-chords-09",
+     "type": "chord_to_degree",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "26:35",
+     "key": "G",
+     "chord": "Em",
+     "question_he": "שיר ב-G מז'ור, ומגיע Em. איזו דרגה זו?",
+     "options": [
+      2,
+      3,
+      5,
+      6
+     ],
+     "answer": 6,
+     "explain_he": "בסולם G מז'ור: G=1 · Am=2 · Bm=3 · C=4 · D=5 · Em=6 · F#ø=7. לכן Em הוא דרגה 6."
+    },
+    {
+     "id": "scale-chords-10",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "28:17",
+     "key": "G",
+     "degree": 7,
+     "question_he": "בסולם G מז'ור — איזה אקורד יושב על דרגה 7?",
+     "options": [
+      "F#ø",
+      "F#m",
+      "F",
+      "F#"
+     ],
+     "answer": "F#ø",
+     "explain_he": "ב-G מז'ור הדרגה ה-7 היא F#, ועליה חצי מוקטן: F#ø. 'פה אנחנו קצת נדפקים, כי צריך לעשות חצי מוקטן' (⏱ 28:17)."
+    },
+    {
+     "id": "scale-chords-11",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "38:50",
+     "key": "A",
+     "degree": 4,
+     "question_he": "בסולם A מז'ור — איזה אקורד יושב על דרגה 4?",
+     "options": [
+      "D",
+      "Dm",
+      "E",
+      "C#m"
+     ],
+     "answer": "D",
+     "explain_he": "בסולם A מז'ור: 1=A · 2=Bm · 3=C#m · 4=D · 5=E · 6=F#m · 7=G#ø. דרגה 4 היא D — לפי התבנית מז'ור·מינור·מינור·מז'ור·מז'ור·מינור·חצי מוקטן."
+    },
+    {
+     "id": "scale-chords-12",
+     "type": "chord_to_degree",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "31:02",
+     "key": "E",
+     "chord": "A",
+     "question_he": "שיר ב-E מז'ור, ומגיע A. איזו דרגה זו?",
+     "options": [
+      2,
+      4,
+      5,
+      7
+     ],
+     "answer": 4,
+     "explain_he": "בסולם E מז'ור: E=1 · F#m=2 · G#m=3 · A=4 · B=5 · C#m=6 · D#ø=7. A הוא דרגה 4. התבנית זהה בכל סולם מז'ור (⏱ 31:02)."
+    },
+    {
+     "id": "scale-chords-13",
+     "type": "ear_quality",
+     "skill": "ear-quality",
+     "difficulty": 2,
+     "source_ts": "25:54",
+     "question_he": "איזה סוג אקורד שמעת?",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "Bø",
+         "notes": [
+          47,
+          50,
+          53,
+          57
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      "מז'ור",
+      "מינור",
+      "חצי מוקטן"
+     ],
+     "answer": "חצי מוקטן",
+     "explain_he": "חצי מוקטן נשמע מתוח, כאילו 'מבקש להיפתר' — כך כנראה תיארת אותו בשיעור (⏱ 25:54). הוא יושב על דרגה 7. (זה היה Bø.)"
+    },
+    {
+     "id": "scale-chords-14",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "31:02",
+     "key": "D",
+     "degree": 6,
+     "question_he": "בסולם D מז'ור — איזה אקורד יושב על דרגה 6?",
+     "options": [
+      "Bm",
+      "B",
+      "Bø",
+      "A"
+     ],
+     "answer": "Bm",
+     "explain_he": "בסולם D מז'ור: 1=D · 2=Em · 3=F#m · 4=G · 5=A · 6=Bm · 7=C#ø. דרגה 6 היא Bm — לפי התבנית מז'ור·מינור·מינור·מז'ור·מז'ור·מינור·חצי מוקטן."
+    },
+    {
+     "id": "scale-chords-15",
+     "type": "ear_quality",
+     "skill": "ear-quality",
+     "difficulty": 2,
+     "source_ts": "31:02",
+     "question_he": "איזה סוג אקורד שמעת?",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "Em",
+         "notes": [
+          52,
+          55,
+          59,
+          64
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      "מז'ור",
+      "מינור",
+      "חצי מוקטן"
+     ],
+     "answer": "מינור",
+     "explain_he": "שוב מינור. ב-G מז'ור זה Em — הדרגה ה-6. (זה היה Em.)"
+    },
+    {
+     "id": "scale-chords-16",
+     "type": "degree_to_chord",
+     "skill": "degree-chords",
+     "difficulty": 3,
+     "source_ts": "31:02",
+     "key": "E",
+     "degree": 3,
+     "question_he": "בסולם E מז'ור — איזה אקורד יושב על דרגה 3?",
+     "options": [
+      "G#m",
+      "G#",
+      "G",
+      "Gm"
+     ],
+     "answer": "G#m",
+     "explain_he": "בסולם E מז'ור: 1=E · 2=F#m · 3=G#m · 4=A · 5=B · 6=C#m · 7=D#ø. דרגה 3 היא G#m — לפי התבנית מז'ור·מינור·מינור·מז'ור·מז'ור·מינור·חצי מוקטן."
+    },
+    {
+     "id": "scale-chords-17",
+     "type": "mcq",
+     "skill": "scale-qualities",
+     "difficulty": 3,
+     "source_ts": "25:40",
+     "question_he": "ארבעת סוגי אקורדי השביעית שנמנו בשיעור (כנראה) הם:",
+     "options": [
+      "מז'ור 7 · שביעית דומיננטית · חצי מוקטן · מוקטן",
+      "מז'ור 7 · מינור 7 · סוס 4 · אוגמנטד",
+      "מז'ור · מינור · מוקטן · מוגדל",
+      "שביעית · תשיעית · אחת-עשרה · שלוש-עשרה"
+     ],
+     "answer": "מז'ור 7 · שביעית דומיננטית · חצי מוקטן · מוקטן",
+     "explain_he": "בתמלול נשמע 'שבע גדול, שבע קטן, half diminished and diminished' (⏱ 25:40). המיפוי ל-maj7 ול-7 הוא [שחזור] לפי התיאוריה המקובלת."
+    }
+   ],
+   "notes_md": "- המורה התעקש לעבור קודם על המז'ור \"בכוונה\", כי המינור נגזר ממנו. דו מז'ור הוא רק הקלידים הלבנים בפסנתר, והדרגות יוצאות ממנו לבד.\n- כשבונים אקורד על כל דרגה מקבלים תבנית קבועה, זהה בכל סולם מז'ור (סיכום ⏱ 31:02):\n\n| דרגה | 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n|---|---|---|---|---|---|---|---|\n| סוג | מז'ור | מינור | מינור | מז'ור | מז'ור | מינור | חצי מוקטן |\n| דו מז'ור | C | Dm | Em | F | G | Am | Bø |\n| סול מז'ור | G | Am | Bm | C | D | Em | F#ø |\n\n- על דרגה 7 יושב אקורד חצי מוקטן (half-diminished, m7♭5) (⏱ 25:32). אחרי שניגנת אותו אמרת, כנראה, שהוא \"ביקש מאוד להיפתר\" (⏱ 25:54). ב-G מז'ור \"נדפקים\" בדרגה הזאת, כי צריך אצבוע של חצי מוקטן (⏱ 28:17).\n- כנראה מנית את ארבעת סוגי אקורדי השביעית (⏱ 25:40): מז'ור 7 (maj7), שביעית דומיננטית (7), חצי מוקטן (ø) ומוקטן (°7). בתמלול: \"שבע גדול, שבע קטן, half diminished and diminished\", והמיפוי ל-maj7 ול-7 הוא שחזור.\n- כדי להבין את האצבוע ספרתם סריגים ומרווחים: \"בוא נדבר סריגים, רק כדי להבין את האצבוע\" (⏱ 28:54–28:58). מהתמלול לא ברור מי משניכם הציע את זה.",
+   "ask": [
+    {
+     "id": "pattern",
+     "skill": "scale-qualities",
+     "title_he": "תבנית האקורדים",
+     "source_ts": "31:02",
+     "concept_he": "על כל דרגה בסולם מז'ור בונים אקורד רק מתווי הסולם, ותמיד יוצאת אותה תבנית: מז'ור, מינור, מינור, מז'ור, מז'ור, מינור, חצי מוקטן.",
+     "deeper_he": "בדו מז'ור, שהוא רק הקלידים הלבנים, יוצאים C, Dm, Em, F, G, Am ו-Bø (⏱ 24:39). התבנית זהה בכל סולם מז'ור, כי המרווחים בין הדרגות זהים; רק השמות זזים (סיכום ⏱ 31:02). המורה עבר על המז'ור קודם בכוונה, כי המינור נגזר ממנו (⏱ 24:22). ב-G מז'ור אותה תבנית נותנת G, Am, Bm, C, D, Em ו-F#ø (⏱ 26:35). בגיטרה: השורש של 1 ב-G יושב על מיתר 6 בסריג 3, ומשם קוראים את שאר הדרגות.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 80,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Dm",
+          "notes": [
+           50,
+           53,
+           57,
+           62
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Bø",
+          "notes": [
+           59,
+           62,
+           65,
+           69,
+           71
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "דו מז'ור, דרגה אחרי דרגה"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה התבנית זהה בכל סולם?",
+       "keywords": [
+        "למה",
+        "זהה",
+        "כל סולם",
+        "תבנית"
+       ],
+       "answer_he": "כי כל סולם מז'ור בנוי מאותם מרווחים, ולכן האקורד על כל דרגה יוצא מאותו סוג. רק השמות זזים (⏱ 31:02)."
+      },
+      {
+       "q_he": "מה האקורדים של G מז'ור?",
+       "keywords": [
+        "G",
+        "סול",
+        "ג'י"
+       ],
+       "answer_he": "G, Am, Bm, C, D, Em, F#ø: אותו תרגיל שעשיתם בדו, הפעם ב-G (⏱ 26:35)."
+      },
+      {
+       "keywords": [
+        "דו",
+        "C",
+        "לבנים"
+       ],
+       "answer_he": "דו מז'ור הוא רק הקלידים הלבנים: C, Dm, Em, F, G, Am, Bø (⏱ 24:39)."
+      }
+     ]
+    },
+    {
+     "id": "degree-map",
+     "skill": "degree-chords",
+     "title_he": "מדרגה לאקורד, ומאקורד לדרגה",
+     "source_ts": "26:35",
+     "concept_he": "כדי למצוא אקורד לפי דרגה: סופרים בתווי הסולם מהשורש ומוסיפים את הסוג מהתבנית. בכיוון ההפוך: מוצאים איפה השורש של האקורד יושב בסולם.",
+     "deeper_he": "ב-G מז'ור: G=1, Am=2, Bm=3, C=4, D=5, Em=6, F#ø=7, ולכן Em הוא דרגה 6 (⏱ 26:35). המטרה של השיעור היא לחשוב במספרים ולא בשמות, כי המספרים נשארים אותו דבר בכל סולם. בדו מז'ור אותה דרגה 6 היא Am (⏱ 24:39). בגיטרה: כשהשורש על מיתר 6, את דרגות 4, 5 ו-6 מוצאים על מיתר 5, בערך באותו אזור.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 6,
+        "fret": 5,
+        "kind": "degree",
+        "label": "2"
+       },
+       {
+        "string": 6,
+        "fret": 7,
+        "kind": "degree",
+        "label": "3"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך יודעים איזה סוג אקורד יושב על דרגה?",
+       "keywords": [
+        "סוג",
+        "מינור",
+        "מז'ור",
+        "איזה"
+       ],
+       "answer_he": "לפי התבנית הקבועה: 1, 4, 5 מז'ור; 2, 3, 6 מינור; 7 חצי מוקטן (⏱ 31:02)."
+      },
+      {
+       "q_he": "למה לחשוב בדרגות ולא בשמות?",
+       "keywords": [
+        "למה",
+        "דרגות",
+        "מספרים",
+        "שמות"
+       ],
+       "answer_he": "כי מהלך במספרים עובד בכל סולם. המורה בנה את כל השיעור על מספרים ולא על שמות של אקורדים (⏱ 24:22)."
+      }
+     ]
+    },
+    {
+     "id": "half-dim",
+     "skill": "scale-qualities",
+     "title_he": "חצי מוקטן על דרגה 7",
+     "source_ts": "25:32",
+     "concept_he": "על דרגה 7 בסולם מז'ור יושב אקורד חצי מוקטן (half-diminished, m7♭5). בדו זה Bø, וב-G זה F#ø.",
+     "deeper_he": "על דרגה 7 בדו מז'ור יוצא Bø (⏱ 25:32). אחרי שניגנת אותו אמרת, כנראה, שהוא \"ביקש מאוד להיפתר\" (⏱ 25:54): הוא לא יציב ורוצה להמשיך הלאה. ב-G מז'ור זה F#ø, ושם \"נדפקים\", כי צריך אצבוע של חצי מוקטן (⏱ 28:17). בגיטרה: השורש של F#ø על מיתר 6 בסריג 2, ושל Bø על מיתר 5 בסריג 2.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 66,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "Bø",
+          "notes": [
+           59,
+           62,
+           65,
+           69,
+           71
+          ],
+          "beats": 3
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 3
+         }
+        ],
+        "label_he": "Bø ואז הבית"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך מנגנים את F#ø?",
+       "keywords": [
+        "איך",
+        "מנגנים",
+        "אצבוע",
+        "F#"
+       ],
+       "answer_he": "בשיעור עלה שב-G \"נדפקים\" בדרגה הזאת כי צריך אצבוע של חצי מוקטן (⏱ 28:17), ובסיכום אמרת שצריך לתרגל אותה (⏱ 31:02). כדאי לבקש מהמורה להראות את האצבוע בשיעור הבא."
+      },
+      {
+       "q_he": "למה הוא נשמע כאילו הוא רוצה להמשיך?",
+       "keywords": [
+        "נשמע",
+        "להיפתר",
+        "רוצה",
+        "להמשיך"
+       ],
+       "answer_he": "אמרת עליו בשיעור שהוא \"ביקש מאוד להיפתר\" (⏱ 25:54). דרגה 7 שייכת לדומיננטה, וזה בדיוק התפקיד שלה: לא לנוח, להוביל הביתה (⏱ 06:15)."
+      }
+     ]
+    },
+    {
+     "id": "seventh-types",
+     "skill": "scale-qualities",
+     "title_he": "ארבעת סוגי אקורדי השביעית [שחזור]",
+     "source_ts": "25:40",
+     "concept_he": "בשיעור נמנו ארבעה סוגי אקורדי שביעית: מז'ור 7 (maj7), שביעית דומיננטית (7), חצי מוקטן (ø) ומוקטן (°7).",
+     "deeper_he": "בתמלול נשמע \"שבע גדול, שבע קטן, half diminished and diminished\" (⏱ 25:40). המיפוי ל-maj7 ול-7 הוא [שחזור] לפי התיאוריה המקובלת. בסולם מז'ור, מבין הארבעה, יושב על דרגה 7 החצי מוקטן (⏱ 25:32). בגיטרה: אפשר להשוות את ארבעתם מאותו שורש C על מיתר 5 בסריג 3. [בונוס] ההבדל הוא בטרצה, בקווינטה ובשביעית: maj7 ו-7 עם טרצה גדולה וקווינטה זכה; ø ו-°7 עם טרצה קטנה וקווינטה מוקטנת. השביעית: גדולה ב-maj7, קטנה ב-7 וב-ø, מוקטנת ב-°7.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "ארבעתם מ-C",
+        "events": [
+         {
+          "label": "Cmaj7",
+          "notes": [
+           48,
+           52,
+           55,
+           59,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C7",
+          "notes": [
+           48,
+           52,
+           55,
+           58,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Cø",
+          "notes": [
+           48,
+           51,
+           54,
+           58,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C°7",
+          "notes": [
+           48,
+           51,
+           54,
+           57,
+           60
+          ],
+          "beats": 2
+         }
+        ]
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "מה ההבדל בין maj7 ל-7?",
+       "keywords": [
+        "maj7",
+        "הבדל",
+        "7",
+        "שביעית"
+       ],
+       "answer_he": "בשביעית: ב-maj7 היא גדולה, ב-7 (שביעית דומיננטית) היא קטנה. בתמלול זה נשמע \"שבע גדול, שבע קטן\" (⏱ 25:40)."
+      },
+      {
+       "q_he": "למה זה מסומן שחזור?",
+       "keywords": [
+        "שחזור",
+        "בטוח",
+        "ודאי"
+       ],
+       "answer_he": "כי התמלול רועש: נשמע רק \"שבע גדול, שבע קטן\", והחיבור ל-maj7 ול-7 הוא השלמה לפי התיאוריה המקובלת (⏱ 25:40)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "families",
+   "title_he": "משפחות: טוניקה · סובדומיננטה · דומיננטה",
+   "path_title_he": "משפחות האקורדים",
+   "icon": "🏠",
+   "source_ts": "05:35",
+   "concept_he": "אקורד יכול להחליף אקורד מאותה משפחה. טוניקה, הבית: 1, 6, 3 — את 3 מוסיפים אחרון, כי הוא 'חצי-חצי' (⏱ 06:02). סובדומיננטה: 4 ו-2 — 'שתיים מחליף את הארבע' (⏱ 05:41). דומיננטה: 5 ו-7 — רוצה פתרון, רוצה הביתה, ולכן אין בה את תו הבית (⏱ 20:20). ה-6 הוא 'הבית העצוב': 'לא אותו סאונד, אבל אותה הרמוניה' (⏱ 08:44).",
+   "exercises": [
+    {
+     "id": "families-01",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 1,
+     "source_ts": "05:41",
+     "question_he": "איזה אקורד יכול להחליף את דרגה 4?",
+     "options": [
+      "2",
+      "5",
+      "7",
+      "3"
+     ],
+     "answer": "2",
+     "explain_he": "'שתיים מחליף את הארבע' (⏱ 05:41). שתיהן במשפחת הסובדומיננטה."
+    },
+    {
+     "id": "families-02",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 1,
+     "source_ts": "06:02",
+     "question_he": "אילו דרגות שייכות למשפחת הטוניקה — הבית?",
+     "options": [
+      "1, 6, 3",
+      "1, 4, 5",
+      "4, 2",
+      "5, 7"
+     ],
+     "answer": "1, 6, 3",
+     "explain_he": "'הטוניקה זה 1, 6 ו-3', ואת 3 'מוסיפים תמיד בסוף כי הוא החצי-חצי' (⏱ 06:02)."
+    },
+    {
+     "id": "families-03",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 1,
+     "source_ts": "20:20",
+     "question_he": "מה הדומיננטה (דרגה 5) 'רוצה'?",
+     "options": [
+      "לחזור הביתה — לפתרון",
+      "להישאר במקום",
+      "לעבור לסולם אחר",
+      "להחליף את 4"
+     ],
+     "answer": "לחזור הביתה — לפתרון",
+     "explain_he": "'הוא רוצה פתרון... הוא רוצה את הבית, אז ברור שאין לו את הבית' (⏱ 20:20). לכן אחרי 5 האוזן מחכה ל-1."
+    },
+    {
+     "id": "families-04",
+     "type": "ear_degree",
+     "skill": "ear-degree",
+     "difficulty": 1,
+     "source_ts": "20:20",
+     "key": "C",
+     "question_he": "קודם קדנצה שקובעת את הבית (1-4-5-1), ואז אקורד נוסף. איזו דרגה הוא?",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 1
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 1
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      4,
+      5,
+      6
+     ],
+     "answer": 5,
+     "explain_he": "דרגה 5, הדומיננטה — נשמעת 'תלויה' ומחכה לחזור הביתה. (שמעת את הקדנצה C–F–G–C, ואז G.)"
+    },
+    {
+     "id": "families-05",
+     "type": "ear_degree",
+     "skill": "ear-degree",
+     "difficulty": 1,
+     "source_ts": "08:44",
+     "key": "C",
+     "question_he": "קודם קדנצה שקובעת את הבית (1-4-5-1), ואז אקורד נוסף. איזו דרגה הוא?",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 1
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 1
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      4,
+      5,
+      6
+     ],
+     "answer": 6,
+     "explain_he": "דרגה 6 — מינורית. 'זה לא אותו סאונד, אבל זה אותה הרמוניה' (⏱ 08:44). (שמעת את הקדנצה C–F–G–C, ואז Am.)"
+    },
+    {
+     "id": "families-06",
+     "type": "fill_blank",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "08:07",
+     "question_he": "השלם את החסר",
+     "text_he": "דרגה 6 נמצאת טון אחד מעל דרגה ___, או טון וחצי מתחת לדרגה 1.",
+     "options": [
+      "5",
+      "4",
+      "3",
+      "2"
+     ],
+     "answer": "5",
+     "explain_he": "'היא נמצאת בטון מעל החמישית... אפשר גם להסתכל על זה שהיא נמצאת בטון וחצי מתחת לראשונה' (⏱ 08:07–08:10)."
+    },
+    {
+     "id": "families-07",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "20:47",
+     "question_he": "למה המורה קורא לדרגה 6 'הבית העצוב'?",
+     "options": [
+      "היא מינורית, ובאותה משפחה כמו 1 — אותה הרמוניה, סאונד אחר",
+      "היא הכי רחוקה מהבית",
+      "היא דומיננטה",
+      "היא מחוץ לסולם"
+     ],
+     "answer": "היא מינורית, ובאותה משפחה כמו 1 — אותה הרמוניה, סאונד אחר",
+     "explain_he": "6 ו-1 שתיהן טוניקה. 6 מינורית, ולכן זה 'הבית העצוב' (⏱ 20:47)."
+    },
+    {
+     "id": "families-08",
+     "type": "family_sort",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "05:35",
+     "key": "C",
+     "question_he": "מיין כל אקורד של C מז'ור למשפחה שלו.",
+     "buckets": [
+      {
+       "id": "tonic",
+       "label_he": "טוניקה (הבית)"
+      },
+      {
+       "id": "subdominant",
+       "label_he": "סובדומיננטה"
+      },
+      {
+       "id": "dominant",
+       "label_he": "דומיננטה"
+      }
+     ],
+     "items": [
+      {
+       "chord": "C",
+       "degree": 1,
+       "family": "tonic"
+      },
+      {
+       "chord": "Am",
+       "degree": 6,
+       "family": "tonic"
+      },
+      {
+       "chord": "F",
+       "degree": 4,
+       "family": "subdominant"
+      },
+      {
+       "chord": "Dm",
+       "degree": 2,
+       "family": "subdominant"
+      },
+      {
+       "chord": "G",
+       "degree": 5,
+       "family": "dominant"
+      }
+     ],
+     "explain_he": "בדו מז'ור: טוניקה C, Am · סובדומיננטה F, Dm · דומיננטה G. אקורד יכול להחליף אקורד מאותה משפחה (⏱ 05:35)."
+    },
+    {
+     "id": "families-09",
+     "type": "ear_degree",
+     "skill": "ear-degree",
+     "difficulty": 2,
+     "source_ts": "04:41",
+     "key": "G",
+     "question_he": "קודם קדנצה שקובעת את הבית (1-4-5-1), ואז אקורד נוסף. איזו דרגה הוא?",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 1
+        },
+        {
+         "label": "D",
+         "notes": [
+          50,
+          54,
+          57,
+          62
+         ],
+         "beats": 1
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      4,
+      5,
+      6
+     ],
+     "answer": 4,
+     "explain_he": "דרגה 4 — מז'ור, סובדומיננטה. יוצאת מהבית בלי 'לחץ' של דומיננטה. (שמעת את הקדנצה G–C–D–G, ואז C.)"
+    },
+    {
+     "id": "families-10",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "05:41",
+     "question_he": "שיר ב-G מז'ור, ומגיע C (דרגה 4). איזה אקורד מאותה משפחה יכול להחליף אותו?",
+     "options": [
+      "Am",
+      "D",
+      "Em",
+      "F#ø"
+     ],
+     "answer": "Am",
+     "explain_he": "C הוא 4 ב-G, ו'שתיים מחליף את הארבע' (⏱ 05:41). דרגה 2 ב-G היא Am."
+    },
+    {
+     "id": "families-11",
+     "type": "mcq",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "08:44",
+     "question_he": "שיר בדו מז'ור, ומגיע C. איזה אקורד מאותה משפחה יחליף אותו?",
+     "options": [
+      "Am",
+      "G",
+      "F",
+      "Dm"
+     ],
+     "answer": "Am",
+     "explain_he": "Am היא דרגה 6, גם היא טוניקה: 'לא אותו סאונד, אבל אותה הרמוניה' (⏱ 08:44)."
+    },
+    {
+     "id": "families-12",
+     "type": "family_sort",
+     "skill": "families",
+     "difficulty": 2,
+     "source_ts": "05:35",
+     "key": "D",
+     "question_he": "מיין כל אקורד של D מז'ור למשפחה שלו.",
+     "buckets": [
+      {
+       "id": "tonic",
+       "label_he": "טוניקה (הבית)"
+      },
+      {
+       "id": "subdominant",
+       "label_he": "סובדומיננטה"
+      },
+      {
+       "id": "dominant",
+       "label_he": "דומיננטה"
+      }
+     ],
+     "items": [
+      {
+       "chord": "D",
+       "degree": 1,
+       "family": "tonic"
+      },
+      {
+       "chord": "Bm",
+       "degree": 6,
+       "family": "tonic"
+      },
+      {
+       "chord": "F#m",
+       "degree": 3,
+       "family": "tonic",
+       "also_accept": [
+        "dominant"
+       ]
+      },
+      {
+       "chord": "G",
+       "degree": 4,
+       "family": "subdominant"
+      },
+      {
+       "chord": "Em",
+       "degree": 2,
+       "family": "subdominant"
+      },
+      {
+       "chord": "A",
+       "degree": 5,
+       "family": "dominant"
+      }
+     ],
+     "explain_he": "ב-D מז'ור: טוניקה D, Bm, F#m · סובדומיננטה G, Em · דומיננטה A. ה-F#m (דרגה 3) הוא 'חצי-חצי' (⏱ 06:02) — מתקבל גם בדומיננטה."
+    },
+    {
+     "id": "families-13",
+     "type": "family_sort",
+     "skill": "families",
+     "difficulty": 3,
+     "source_ts": "06:02",
+     "key": "G",
+     "question_he": "מיין כל אקורד של G מז'ור למשפחה שלו.",
+     "buckets": [
+      {
+       "id": "tonic",
+       "label_he": "טוניקה (הבית)"
+      },
+      {
+       "id": "subdominant",
+       "label_he": "סובדומיננטה"
+      },
+      {
+       "id": "dominant",
+       "label_he": "דומיננטה"
+      }
+     ],
+     "items": [
+      {
+       "chord": "G",
+       "degree": 1,
+       "family": "tonic"
+      },
+      {
+       "chord": "Em",
+       "degree": 6,
+       "family": "tonic"
+      },
+      {
+       "chord": "Bm",
+       "degree": 3,
+       "family": "tonic",
+       "also_accept": [
+        "dominant"
+       ]
+      },
+      {
+       "chord": "C",
+       "degree": 4,
+       "family": "subdominant"
+      },
+      {
+       "chord": "Am",
+       "degree": 2,
+       "family": "subdominant"
+      },
+      {
+       "chord": "D",
+       "degree": 5,
+       "family": "dominant"
+      },
+      {
+       "chord": "F#ø",
+       "degree": 7,
+       "family": "dominant"
+      }
+     ],
+     "explain_he": "ב-G מז'ור: טוניקה G, Em, Bm · סובדומיננטה C, Am · דומיננטה D, F#ø. ה-Bm (דרגה 3) הוא 'חצי-חצי' (⏱ 06:02) — קרוב גם לדומיננטה, ולכן גם שם זה מתקבל. (F#ø בדומיננטה: [שחזור] לפי התיאוריה המקובלת.)"
+    },
+    {
+     "id": "families-14",
+     "type": "ear_degree",
+     "skill": "ear-degree",
+     "difficulty": 3,
+     "source_ts": "05:41",
+     "key": "G",
+     "question_he": "קודם קדנצה שקובעת את הבית (1-4-5-1), ואז אקורד נוסף. איזו דרגה הוא?",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 1
+        },
+        {
+         "label": "D",
+         "notes": [
+          50,
+          54,
+          57,
+          62
+         ],
+         "beats": 1
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ],
+     "options": [
+      2,
+      4,
+      5,
+      6
+     ],
+     "answer": 2,
+     "explain_he": "דרגה 2 — מינורית, ומשפחת הסובדומיננטה כמו 4. 'שתיים מחליף את הארבע' (⏱ 05:41). (שמעת את הקדנצה G–C–D–G, ואז Am.)"
+    }
+   ],
+   "notes_md": "- אקורד יכול להחליף אקורד אחר מאותה משפחה:\n  - **טוניקה (הבית):** 1, 6, 3. את 3 מוסיפים אחרון, כי הוא \"חצי-חצי\" ויושב בין הבית לדומיננטה (⏱ 06:02).\n  - **סובדומיננטה:** 4 ו-2. \"שתיים מחליף את הארבע\" (⏱ 05:41).\n  - **דומיננטה:** 5 ו-7. בתמלול נשמע \"החמישית והשלישית\" (⏱ 06:15). ה-3, שהוא \"חצי-חצי\", קרוב גם לדומיננטה, וה-7 הוא שחזור לפי התיאוריה המקובלת.\n- דרגה 6 היא אקורד מינורי. היא נמצאת טון אחד מעל 5, או טון וחצי מתחת ל-1. כשמשווים אותה ל-1: \"זה לא אותו סאונד, אבל זה אותה הרמוניה\" (⏱ 08:07–08:44). המורה קורא לה \"הבית העצוב\" (⏱ 20:47).\n- הדומיננטה (5) רוצה פתרון ורוצה לחזור הביתה, ובדיוק בגלל זה אין בה את תו הבית (⏱ 20:02–20:35).",
+   "ask": [
+    {
+     "id": "tonic",
+     "skill": "families",
+     "title_he": "הבית: 1, 6, 3",
+     "source_ts": "05:35",
+     "concept_he": "משפחת הטוניקה, הבית, היא דרגות 1, 6 ו-3. אקורד יכול להחליף אקורד אחר מאותה משפחה.",
+     "deeper_he": "בדו מז'ור הבית הוא C, ואיתו Am ו-Em (⏱ 05:35). את 3 מוסיפים אחרון, כי הוא \"חצי-חצי\" ויושב בין הבית לדומיננטה (⏱ 06:02). ב-G מז'ור המשפחה היא G, Em ו-Bm. בגיטרה: ב-G השורש של 1 על מיתר 6 בסריג 3, והשורש של 6 על מיתר 5 בסריג 7, או מתחת: מיתר 6 פתוח.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 6,
+        "fret": 0,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 6,
+        "fret": 7,
+        "kind": "degree",
+        "label": "3"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה 3 נחשב רק \"חצי\" בית?",
+       "keywords": [
+        "3",
+        "שלוש",
+        "חצי"
+       ],
+       "answer_he": "המורה הוסיף את 3 אחרון וקרא לו \"חצי-חצי\": הוא יושב בין הבית לדומיננטה (⏱ 06:02)."
+      },
+      {
+       "q_he": "מה זה אומר שאקורד מחליף אקורד?",
+       "keywords": [
+        "מחליף",
+        "להחליף",
+        "תחליף"
+       ],
+       "answer_he": "אפשר לשים אקורד מאותה משפחה במקום אחר והתפקיד נשמר. למשל Am במקום C (⏱ 05:35)."
+      }
+     ]
+    },
+    {
+     "id": "subdominant",
+     "skill": "families",
+     "title_he": "סובדומיננטה: 4 ו-2",
+     "quote_he": "שתיים מחליף את הארבע.",
+     "source_ts": "05:41",
+     "concept_he": "משפחת הסובדומיננטה היא דרגות 4 ו-2. דרגה 2 יכולה להחליף את דרגה 4.",
+     "deeper_he": "בדו מז'ור אלה F ו-Dm: \"שתיים מחליף את הארבע\" (⏱ 05:41). הם באותה משפחה כי יש להם תפקיד דומה במהלך: הם מתרחקים מהבית לפני הדומיננטה. ב-G מז'ור זה C ו-Am. בגיטרה: ב-G, דרגה 4 על מיתר 5 בסריג 3, ודרגה 2 על מיתר 6 בסריג 5.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       },
+       {
+        "string": 6,
+        "fret": 5,
+        "kind": "degree",
+        "label": "2"
+       }
+      ]
+     },
+     "example": {
+      "clips": [
+       {
+        "bpm": 76,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "עם 4"
+       },
+       {
+        "bpm": 76,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Dm",
+          "notes": [
+           50,
+           53,
+           57,
+           62
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "2 במקום 4"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך נשמעת ההחלפה של 4 ב-2?",
+       "keywords": [
+        "נשמע",
+        "החלפה",
+        "2",
+        "4"
+       ],
+       "answer_he": "נגן את שני הקטעים בדוגמה: C – F – G – C ואז C – Dm – G – C. התפקיד נשמר, הצבע משתנה (⏱ 05:41)."
+      },
+      {
+       "q_he": "מה זה סובדומיננטה?",
+       "keywords": [
+        "סובדומיננטה",
+        "מה זה"
+       ],
+       "answer_he": "המשפחה של 4 ו-2: לא בבית ולא במתח של הדומיננטה. בשיעור: \"שתיים מחליף את הארבע\" (⏱ 05:41)."
+      }
+     ]
+    },
+    {
+     "id": "dominant-family",
+     "skill": "families",
+     "title_he": "דומיננטה: 5 ו-7",
+     "source_ts": "06:15",
+     "concept_he": "משפחת הדומיננטה היא דרגות 5 ו-7. הדומיננטה רוצה פתרון ורוצה לחזור הביתה, ובדיוק בגלל זה אין בה את תו הבית.",
+     "deeper_he": "בדו מז'ור אלה G ו-Bø (⏱ 06:15). בתמלול נשמע \"החמישית והשלישית\"; ה-7 הוא [שחזור] לפי התיאוריה המקובלת, וה-3, שהוא \"חצי-חצי\", קרוב גם לדומיננטה. הדומיננטה רוצה לחזור הביתה, ובדיוק בגלל זה אין בה את תו הבית (⏱ 20:02–20:35). ב-G מז'ור זה D ו-F#ø. בגיטרה: ב-G, דרגה 5 על מיתר 5 בסריג 5, שני סריגים אחרי השורש.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       }
+      ]
+     },
+     "example": {
+      "clips": [
+       {
+        "bpm": 66,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 3
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 3
+         }
+        ],
+        "label_he": "תלוי"
+       },
+       {
+        "bpm": 66,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 3
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 3
+         }
+        ],
+        "label_he": "חוזר הביתה"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה הדומיננטה \"רוצה\" לחזור הביתה?",
+       "keywords": [
+        "למה",
+        "רוצה",
+        "לחזור",
+        "הביתה"
+       ],
+       "answer_he": "כי אין בה את תו הבית, ולכן היא נשמעת תלויה עד שחוזרים ל-1 (⏱ 20:02–20:35)."
+      },
+      {
+       "q_he": "7 באמת בדומיננטה?",
+       "keywords": [
+        "7",
+        "שבע",
+        "בטוח"
+       ],
+       "answer_he": "בתמלול נשמע \"החמישית והשלישית\" (⏱ 06:15). ה-7 הוא השלמה לפי התיאוריה המקובלת. כדאי לוודא עם המורה."
+      }
+     ]
+    },
+    {
+     "id": "sad-home",
+     "skill": "ear-degree",
+     "title_he": "הבית העצוב: דרגה 6",
+     "quote_he": "זה לא אותו סאונד, אבל זה אותה הרמוניה.",
+     "source_ts": "08:07",
+     "concept_he": "דרגה 6 היא אקורד מינורי מאותה משפחה של הבית. המורה קורא לה \"הבית העצוב\".",
+     "deeper_he": "דרגה 6 נמצאת טון אחד מעל 5, או טון וחצי מתחת ל-1. כשמשווים אותה ל-1: \"זה לא אותו סאונד, אבל זה אותה הרמוניה\" (⏱ 08:07–08:44). לכן קוראים לה \"הבית העצוב\" (⏱ 20:47). בדו זה Am מול C, וב-G זה Em מול G. בגיטרה: ב-G, Em על מיתר 5 בסריג 7, או על מיתר 6 פתוח, מתחת לשורש.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 66,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 3
+         },
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 3
+         }
+        ],
+        "label_he": "הבית והבית העצוב"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך שומעים את ההבדל בין 1 ל-6?",
+       "keywords": [
+        "שומעים",
+        "הבדל",
+        "6",
+        "1"
+       ],
+       "answer_he": "1 מז'ורי ו-6 מינורי, אבל הם חולקים שני תווים, ולכן \"זה לא אותו סאונד, אבל זה אותה הרמוניה\" (⏱ 08:07–08:44)."
+      },
+      {
+       "q_he": "איפה 6 ביחס ל-5 ול-1?",
+       "keywords": [
+        "איפה",
+        "טון",
+        "מעל",
+        "מתחת"
+       ],
+       "answer_he": "טון אחד מעל 5, או טון וחצי מתחת ל-1 (⏱ 08:07)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "progressions",
+   "title_he": "מהלכי ג'אם: 1-5-6-4 וחלק ב'",
+   "icon": "🔁",
+   "source_ts": "31:37",
+   "concept_he": "המהלך הראשון לג'אם: 1-4-5 (⏱ 31:44). 'שירי ארבעת האקורדים': 1-5-6-4 (⏱ 32:26) — ב-G: G D Em C, ב-A: A E F#m D (⏱ 38:50). לא לחשב 'שבע ועוד חמש' — להסתכל על הגיטרה (⏱ 33:10), ולהגיד בקול את הדרגות, לא את שמות האקורדים (⏱ 38:38). אחרי ארבעה סבבים זה משעמם, אז חלק ב' — 'הג'אנק פוד, המקדונלדס' — מתחיל מהשישית: 6-4-1-5 (⏱ 42:37).",
+   "exercises": [
+    {
+     "id": "progressions-01",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 1,
+     "source_ts": "31:44",
+     "question_he": "מה המהלך הראשון שמנסים בג'אם?",
+     "options": [
+      "1-4-5",
+      "1-6-3",
+      "2-5-1",
+      "7-3-6"
+     ],
+     "answer": "1-4-5",
+     "explain_he": "'קודם כל 1-4-5' (⏱ 31:44) — שלושת האקורדים המז'וריים. אבל אפשר להשתמש בכל הדרגות, ואפשר גם לצאת מהסולם."
+    },
+    {
+     "id": "progressions-02",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 1,
+     "source_ts": "31:44",
+     "key": "C",
+     "pattern": [
+      1,
+      4,
+      5
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-4-5 ב-C מז'ור.",
+     "pool": [
+      "C",
+      "F",
+      "G",
+      "Am",
+      "Dm"
+     ],
+     "answer": [
+      "C",
+      "F",
+      "G"
+     ],
+     "explain_he": "בדו מז'ור: 1=C, 4=F, 5=G."
+    },
+    {
+     "id": "progressions-03",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 1,
+     "source_ts": "32:26",
+     "question_he": "על איזה מהלך בנויים 'שירי ארבעת האקורדים'?",
+     "options": [
+      "1-5-6-4",
+      "1-4-5-1",
+      "6-4-1-5",
+      "1-6-4-5"
+     ],
+     "answer": "1-5-6-4",
+     "explain_he": "'ראשונה, חמישית, שישית, רביעית — 1, 5, 6, 4' (⏱ 32:26). 6-4-1-5 הוא חלק ב' שלו — אותם אקורדים, סדר אחר."
+    },
+    {
+     "id": "progressions-04",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 1,
+     "source_ts": "33:10",
+     "question_he": "מתחילים מ-G. מה הדרגה החמישית?",
+     "options": [
+      "D",
+      "E",
+      "C",
+      "A"
+     ],
+     "answer": "D",
+     "explain_he": "בשיעור ניחשת E (⏱ 32:52). המורה: 'אל תספור ככה... תסתכל על הגיטרה' — החמישית של G היא D (⏱ 33:10–33:23). ובטריק 'פחות שלוש': G, F, E, D."
+    },
+    {
+     "id": "progressions-05",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "32:26",
+     "key": "G",
+     "pattern": [
+      1,
+      5,
+      6,
+      4
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-5-6-4 ב-G מז'ור.",
+     "pool": [
+      "G",
+      "D",
+      "Em",
+      "C",
+      "Am",
+      "F"
+     ],
+     "answer": [
+      "G",
+      "D",
+      "Em",
+      "C"
+     ],
+     "explain_he": "ב-G: 1=G, 5=D, 6=Em, 4=C. זה המהלך מהשיעור (⏱ 32:26–33:43)."
+    },
+    {
+     "id": "progressions-06",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "38:38",
+     "question_he": "התרגיל מהשיעור: מנגנים 1-5-6-4, ובזמן הנגינה אומרים בקול...",
+     "options": [
+      "את שמות הדרגות: ראשונה, חמישית, שישית, רביעית",
+      "את שמות האקורדים",
+      "את הפעמות: 1, 2, 3, 4",
+      "כלום — רק מקשיבים"
+     ],
+     "answer": "את שמות הדרגות: ראשונה, חמישית, שישית, רביעית",
+     "explain_he": "'דרגות' (⏱ 38:38). המטרה לחשוב במספרים — אז אותו מהלך עובר לכל סולם בלי לחשב."
+    },
+    {
+     "id": "progressions-07",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "38:50",
+     "key": "A",
+     "pattern": [
+      1,
+      5,
+      6,
+      4
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-5-6-4 ב-A מז'ור.",
+     "pool": [
+      "A",
+      "E",
+      "F#m",
+      "D",
+      "Bm",
+      "C#m"
+     ],
+     "answer": [
+      "A",
+      "E",
+      "F#m",
+      "D"
+     ],
+     "explain_he": "ב-A: 1=A, 5=E, 6=F#m, 4=D (⏱ 38:50)."
+    },
+    {
+     "id": "progressions-08",
+     "type": "chord_to_degree",
+     "skill": "degree-chords",
+     "difficulty": 2,
+     "source_ts": "38:50",
+     "key": "A",
+     "chord": "F#m",
+     "question_he": "שיר ב-A מז'ור, ומגיע F#m. איזו דרגה זו?",
+     "options": [
+      2,
+      3,
+      5,
+      6
+     ],
+     "answer": 6,
+     "explain_he": "ב-A מז'ור: A=1 · Bm=2 · C#m=3 · D=4 · E=5 · F#m=6 · G#ø=7. F#m הוא 6 — וגם המינור הטבעי של A (⏱ 54:41)."
+    },
+    {
+     "id": "progressions-09",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "42:37",
+     "question_he": "אחרי ארבעה סבבים של 1-5-6-4 זה משעמם. מה 'חלק ב'' הגנרי — 'הג'אנק פוד, המקדונלדס'?",
+     "options": [
+      "6-4-1-5",
+      "6-4-5-1",
+      "5-1-4-6",
+      "4-5-1-6"
+     ],
+     "answer": "6-4-1-5",
+     "explain_he": "מתחילים מהשישית: 6-4-1-5 (⏱ 42:43). בשיעור כנראה נאמר קודם 6-4-5-1, ותוקן ל-6-4-1-5 (⏱ 42:55). זה לא 'הפוך' בדיוק."
+    },
+    {
+     "id": "progressions-10",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "43:17",
+     "key": "G",
+     "pattern": [
+      6,
+      4,
+      1,
+      5
+     ],
+     "question_he": "סדר את האקורדים למהלך 6-4-1-5 ב-G מז'ור.",
+     "pool": [
+      "Em",
+      "C",
+      "G",
+      "D",
+      "Am",
+      "Bm"
+     ],
+     "answer": [
+      "Em",
+      "C",
+      "G",
+      "D"
+     ],
+     "explain_he": "חלק ב' ב-G: 6=Em, 4=C, 1=G, 5=D — כמו שהמורה הדגים (⏱ 43:17). אחרי זה חוזרים לחלק הראשון."
+    },
+    {
+     "id": "progressions-11",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 2,
+     "source_ts": "32:26",
+     "key": "C",
+     "pattern": [
+      1,
+      5,
+      6,
+      4
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-5-6-4 ב-C מז'ור.",
+     "pool": [
+      "C",
+      "G",
+      "Am",
+      "F",
+      "Dm",
+      "Em"
+     ],
+     "answer": [
+      "C",
+      "G",
+      "Am",
+      "F"
+     ],
+     "explain_he": "בדו: C, G, Am, F."
+    },
+    {
+     "id": "progressions-12",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 3,
+     "source_ts": "32:26",
+     "key": "D",
+     "pattern": [
+      1,
+      5,
+      6,
+      4
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-5-6-4 ב-D מז'ור.",
+     "pool": [
+      "D",
+      "A",
+      "Bm",
+      "G",
+      "Em",
+      "F#m"
+     ],
+     "answer": [
+      "D",
+      "A",
+      "Bm",
+      "G"
+     ],
+     "explain_he": "ב-D: 1=D, 5=A, 6=Bm, 4=G. אותם מספרים — סולם אחר."
+    },
+    {
+     "id": "progressions-13",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 3,
+     "source_ts": "42:43",
+     "key": "E",
+     "pattern": [
+      6,
+      4,
+      1,
+      5
+     ],
+     "question_he": "סדר את האקורדים למהלך 6-4-1-5 ב-E מז'ור.",
+     "pool": [
+      "C#m",
+      "A",
+      "E",
+      "B",
+      "F#m",
+      "G#m"
+     ],
+     "answer": [
+      "C#m",
+      "A",
+      "E",
+      "B"
+     ],
+     "explain_he": "חלק ב' ב-E: 6=C#m, 4=A, 1=E, 5=B."
+    },
+    {
+     "id": "progressions-14",
+     "type": "fill_blank",
+     "skill": "progressions",
+     "difficulty": 3,
+     "source_ts": "1:12:21",
+     "question_he": "השלם את החסר",
+     "text_he": "6-4-1-5 ב-G הוא Em – C – G – D. כשסופרים מהמינור (Em = 1), אותו מהלך נקרא ___.",
+     "options": [
+      "1-6-3-7",
+      "1-4-5-1",
+      "6-4-1-5",
+      "1-3-6-7"
+     ],
+     "answer": "1-6-3-7",
+     "explain_he": "חלק ב' כבר יושב במינור הטבעי. מ-Em: Em=1, C=6, G=3, D=7 — 'ראשונה, שישית, שלישית, שביעית' (⏱ 1:12:02–1:12:21)."
+    },
+    {
+     "id": "progressions-15",
+     "type": "mcq",
+     "skill": "progressions",
+     "difficulty": 3,
+     "source_ts": "32:26",
+     "question_he": "הקשב: איזה מהלך זה? (G מז'ור)",
+     "options": [
+      "1-5-6-4",
+      "1-4-5-1",
+      "1-6-4-5"
+     ],
+     "answer": "1-5-6-4",
+     "explain_he": "G → D → Em → C: ראשונה, חמישית, שישית, רביעית — ארבעת האקורדים.",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "D",
+         "notes": [
+          50,
+          54,
+          57,
+          62
+         ],
+         "beats": 2
+        },
+        {
+         "label": "Em",
+         "notes": [
+          52,
+          55,
+          59,
+          64
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "progressions-16",
+     "type": "progression_build",
+     "skill": "progressions",
+     "difficulty": 3,
+     "source_ts": "32:26",
+     "key": "E",
+     "pattern": [
+      1,
+      5,
+      6,
+      4
+     ],
+     "question_he": "סדר את האקורדים למהלך 1-5-6-4 ב-E מז'ור.",
+     "pool": [
+      "E",
+      "B",
+      "C#m",
+      "A",
+      "F#m",
+      "G#m"
+     ],
+     "answer": [
+      "E",
+      "B",
+      "C#m",
+      "A"
+     ],
+     "explain_he": "ב-E: 1=E, 5=B, 6=C#m, 4=A. אותם מספרים — סולם אחר (⏱ 32:26)."
+    }
+   ],
+   "notes_md": "- המהלך הראשון לג'אם הוא 1-4-5. אבל אפשר להשתמש בכל הדרגות, ואפשר גם לצאת מהסולם.\n- \"שירי ארבעת האקורדים\" בנויים על 1-5-6-4 (⏱ 32:26). ב-G זה G – D – Em – C, וב-A זה A – E – F#m – D (⏱ 38:50).\n- לא לחשב בראש (\"שבע ועוד חמש\"). להסתכל על הגיטרה: כשהטוניקה היא G, החמישית יושבת במקום קבוע ממנה, וזה D (⏱ 33:03–33:23).\n- התרגיל בשיעור: לנגן ולהגיד בקול את שמות הדרגות (\"ראשונה, חמישית, שישית, רביעית\"), לא את שמות האקורדים (⏱ 38:38). ולמצוא את השישית גם מתחת לראשונה ולא רק מעליה: אותה דרגה, אוקטבה אחרת (⏱ 39:05–39:56).\n- **חלק ב' לשיר:** אחרי ארבעה סבבים של 1-5-6-4 זה כבר משעמם. הפתרון הגנרי, \"הג'אנק פוד, המקדונלדס\", הוא להתחיל מהשישית: 6-4-1-5. אחר כך חוזרים לחלק הראשון. המורה הדגים את זה ב-G (⏱ 42:07–45:06).",
+   "ask": [
+    {
+     "id": "jam-145",
+     "skill": "progressions",
+     "title_he": "1-4-5: המהלך הראשון לג'אם",
+     "source_ts": "31:37",
+     "concept_he": "המהלך הראשון לג'אם הוא 1-4-5, שלושת האקורדים המז'וריים של הסולם. אבל אפשר להשתמש בכל הדרגות, ואפשר גם לצאת מהסולם.",
+     "deeper_he": "בדו מז'ור 1-4-5 הוא C – F – G (⏱ 31:37). שלושתם מז'וריים, אחד מכל משפחה: בית, סובדומיננטה ודומיננטה. ב-G זה G – C – D. בגיטרה: ב-G השורש של 1 על מיתר 6 בסריג 3, ושל 4 ו-5 על מיתר 5 בסריגים 3 ו-5.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 80,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "D",
+          "notes": [
+           50,
+           54,
+           57,
+           62
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "1-4-5 ב-G"
+       }
+      ]
+     },
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "חייבים להישאר ב-1-4-5?",
+       "keywords": [
+        "חייבים",
+        "רק",
+        "דרגות",
+        "לצאת"
+       ],
+       "answer_he": "לא. זה המהלך הראשון, אבל אפשר להשתמש בכל הדרגות ואפשר גם לצאת מהסולם (⏱ 31:37)."
+      },
+      {
+       "q_he": "מה זה 1-4-5 ב-A?",
+       "keywords": [
+        "A",
+        "לה"
+       ],
+       "answer_he": "A – D – E: אותם מספרים, סולם אחר (⏱ 31:37)."
+      }
+     ]
+    },
+    {
+     "id": "four-chords",
+     "skill": "progressions",
+     "title_he": "ארבעת האקורדים: 1-5-6-4",
+     "source_ts": "32:26",
+     "concept_he": "\"שירי ארבעת האקורדים\" בנויים על 1-5-6-4. ב-G זה G – D – Em – C, וב-A זה A – E – F#m – D.",
+     "deeper_he": "1-5-6-4 ב-G הוא G – D – Em – C (⏱ 32:26). לא מחשבים בראש \"שבע ועוד חמש\": מסתכלים על הגיטרה, כי כשהטוניקה היא G החמישית יושבת במקום קבוע ממנה, וזה D (⏱ 33:03–33:23). ב-A אותו מהלך הוא A – E – F#m – D (⏱ 38:50). בגיטרה: 4 על מיתר 5 באותו סריג של השורש, 5 שני סריגים אחריו, ו-6 עוד שני סריגים.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 76,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "D",
+          "notes": [
+           50,
+           54,
+           57,
+           62
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "1-5-6-4 ב-G"
+       }
+      ]
+     },
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך מוצאים מהר את החמישית?",
+       "keywords": [
+        "חמישית",
+        "מהר",
+        "למצוא",
+        "5"
+       ],
+       "answer_he": "לא סופרים \"שבע ועוד חמש\". מסתכלים על הגיטרה: מהשורש על מיתר 6, החמישית על מיתר 5 שני סריגים מעליו (⏱ 33:03–33:23)."
+      },
+      {
+       "q_he": "למה ניחשתי E כחמישית של G?",
+       "keywords": [
+        "E",
+        "טעות",
+        "ניחשתי"
+       ],
+       "answer_he": "זו טעות שקרתה בשיעור: E היא השישית של G. החמישית היא D (⏱ 32:52)."
+      }
+     ]
+    },
+    {
+     "id": "part-b",
+     "skill": "progressions",
+     "title_he": "חלק ב': 6-4-1-5",
+     "quote_he": "הג'אנק פוד, המקדונלדס.",
+     "source_ts": "42:07",
+     "concept_he": "אחרי ארבעה סבבים של 1-5-6-4 זה כבר משעמם. הפתרון הגנרי הוא להתחיל מהשישית: 6-4-1-5, ואחר כך לחזור לחלק הראשון.",
+     "deeper_he": "המורה הדגים ב-G: Em – C – G – D (⏱ 42:07–45:06). הוא קרא לזה \"הג'אנק פוד, המקדונלדס\": פתרון שעובד תמיד, כי הוא משתמש באותם ארבעה אקורדים בסדר אחר. ב-A זה F#m – D – A – E. בגיטרה: מתחילים מ-6 על מיתר 5 בסריג 7, או מתחת לשורש על מיתר 6 פתוח.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 80,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "D",
+          "notes": [
+           50,
+           54,
+           57,
+           62
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "חלק א'"
+       },
+       {
+        "bpm": 80,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "D",
+          "notes": [
+           50,
+           54,
+           57,
+           62
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "חלק ב'"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה דווקא 6-4-1-5?",
+       "keywords": [
+        "למה",
+        "6",
+        "דווקא"
+       ],
+       "answer_he": "כי הוא נותן צבע חדש עם אותם אקורדים: מתחילים מהבית העצוב. המורה קרא לזה \"הג'אנק פוד, המקדונלדס\" (⏱ 42:07)."
+      },
+      {
+       "q_he": "מתי עוברים לחלק ב'?",
+       "keywords": [
+        "מתי",
+        "סבבים",
+        "לעבור"
+       ],
+       "answer_he": "אחרי ארבעה סבבים של 1-5-6-4, ואז חוזרים לחלק הראשון (⏱ 42:07–45:06)."
+      }
+     ]
+    },
+    {
+     "id": "say-degrees",
+     "skill": "progressions",
+     "title_he": "להגיד את הדרגות בקול",
+     "quote_he": "ראשונה, חמישית, שישית, רביעית.",
+     "source_ts": "38:38",
+     "concept_he": "התרגיל בשיעור: לנגן ולהגיד בקול את שמות הדרגות, לא את שמות האקורדים. ולמצוא את השישית גם מתחת לראשונה.",
+     "deeper_he": "מנגנים 1-5-6-4 ואומרים \"ראשונה, חמישית, שישית, רביעית\" (⏱ 38:38). ככה המספרים נכנסים לידיים, והמהלך עובר לכל סולם בלי לחשב. אחר כך מוצאים את השישית גם מתחת לראשונה ולא רק מעליה: אותה דרגה, אוקטבה אחרת (⏱ 39:05–39:56). בגיטרה: ב-G השישית היא E: על מיתר 5 בסריג 7, או על מיתר 6 פתוח.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 6,
+        "fret": 0,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה להגיד בקול?",
+       "keywords": [
+        "למה",
+        "בקול",
+        "להגיד"
+       ],
+       "answer_he": "כדי לחשוב במספרים ולא בשמות. זה התרגיל שהמורה נתן בשיעור (⏱ 38:38). בכלי \"נגן מהלכים\" יש מצב \"רק מספרים\" בדיוק לזה."
+      },
+      {
+       "q_he": "איפה השישית מתחת לשורש?",
+       "keywords": [
+        "שישית",
+        "מתחת",
+        "6"
+       ],
+       "answer_he": "ב-G: על מיתר 6 פתוח (E). אותה דרגה, אוקטבה אחרת (⏱ 39:05–39:56)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fretboard",
+   "title_he": "לראות את הצוואר: מיתרים 6 ו-5",
+   "icon": "🎸",
+   "source_ts": "1:31:36",
+   "concept_he": "'לא בדיוק חישוב, כמו פשוט להכיר את מערכת היחסים' (⏱ 1:31:47). כשהשורש על מיתר 6, הרביעית יושבת באותו סריג על מיתר 5 (⏱ 1:32:04), והחמישית — שני סריגים מעליה; היא נקודת עוגן, אין צורך לספור (⏱ 35:36). את השישית מחפשים גם מתחת לראשונה: אותה דרגה, אוקטבה אחרת (⏱ 39:56). בינתיים רק שני המיתרים הנמוכים — 'אין סיבה ללכת הלאה' (⏱ 1:32:37).",
+   "exercises": [
+    {
+     "id": "fretboard-01",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 1,
+     "source_ts": "04:26",
+     "question_he": "מיתר 6 (E נמוך): הקש על התו G.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      6
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "note": "G"
+     },
+     "root_marker": null,
+     "answers": [
+      {
+       "string": 6,
+       "fret": 3
+      }
+     ],
+     "explain_he": "G על מיתר 6 נמצא בסריג 3. משם מתחילים את מפת הדרגות של G (⏱ 04:26)."
+    },
+    {
+     "id": "fretboard-02",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 1,
+     "source_ts": "1:32:04",
+     "question_he": "מיתר 5 (A): הקש על התו C.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "note": "C"
+     },
+     "root_marker": null,
+     "answers": [
+      {
+       "string": 5,
+       "fret": 3
+      }
+     ],
+     "explain_he": "C על מיתר 5 בסריג 3 — בדיוק מתחת ל-G של מיתר 6. זו הרביעית של G."
+    },
+    {
+     "id": "fretboard-03",
+     "type": "mcq",
+     "skill": "fretboard-low",
+     "difficulty": 1,
+     "source_ts": "1:32:04",
+     "question_he": "השורש (דרגה 1) על מיתר 6. איפה הרביעית שלו?",
+     "options": [
+      "על מיתר 5, באותו סריג",
+      "על מיתר 5, שני סריגים מעל",
+      "על מיתר 6, סריג אחד מעל",
+      "על מיתר 4, באותו סריג"
+     ],
+     "answer": "על מיתר 5, באותו סריג",
+     "explain_he": "'אם היא פה, אז הקוורטה שלה זה פה' (⏱ 1:32:04): מיתר 6 ומיתר 5 רחוקים קוורטה, אז הרביעית יושבת ממש מתחת."
+    },
+    {
+     "id": "fretboard-04",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 1,
+     "source_ts": "1:32:04",
+     "question_he": "השורש G מסומן (מיתר 6, סריג 3). הקש על דרגה 4 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "G",
+      "degree": 4
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 3
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 3
+      }
+     ],
+     "explain_he": "דרגה 4 של G היא C — מיתר 5, סריג 3, באותו סריג כמו השורש."
+    },
+    {
+     "id": "fretboard-05",
+     "type": "mcq",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "33:10",
+     "question_he": "השורש על מיתר 6. איפה החמישית?",
+     "options": [
+      "על מיתר 5, שני סריגים מעל השורש",
+      "על מיתר 5, באותו סריג",
+      "על מיתר 6, חמישה סריגים מעל",
+      "על מיתר 5, סריג אחד מתחת"
+     ],
+     "answer": "על מיתר 5, שני סריגים מעל השורש",
+     "explain_he": "'התו החמישי שלך יהיה פה' (⏱ 33:10). כשאתה יודע איפה החמישית, היא נקודת עוגן ואין צורך לספור (⏱ 35:36)."
+    },
+    {
+     "id": "fretboard-06",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "33:10",
+     "question_he": "השורש G מסומן. הקש על דרגה 5 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "G",
+      "degree": 5
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 3
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 5
+      }
+     ],
+     "explain_he": "דרגה 5 של G היא D — מיתר 5, סריג 5: שני סריגים מעל השורש. 'איזה תו זה? D' (⏱ 33:10–33:23)."
+    },
+    {
+     "id": "fretboard-07",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "39:20",
+     "question_he": "השורש G מסומן. הקש על דרגה 6 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "G",
+      "degree": 6
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 3
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 7
+      }
+     ],
+     "explain_he": "דרגה 6 של G היא E — מיתר 5, סריג 7. טון מעל החמישית (⏱ 08:07)."
+    },
+    {
+     "id": "fretboard-08",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "39:56",
+     "question_he": "השורש G מסומן. מצא את דרגה 6 — מתחת לשורש, לא מעליו.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      6,
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "G",
+      "degree": 6,
+      "below_root": true
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 3
+     },
+     "answers": [
+      {
+       "string": 6,
+       "fret": 0
+      }
+     ],
+     "explain_he": "'אותו התו, התו השישי, אבל שיהיה מתחת' (⏱ 39:56). E פתוח על מיתר 6 — טון וחצי מתחת ל-G (⏱ 08:10)."
+    },
+    {
+     "id": "fretboard-09",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "38:50",
+     "question_he": "השורש A מסומן (מיתר 6, סריג 5). הקש על דרגה 4 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "A",
+      "degree": 4
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 5
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 5
+      }
+     ],
+     "explain_he": "אותה צורה בדיוק, רק מ-A: דרגה 4 היא D — מיתר 5, סריג 5."
+    },
+    {
+     "id": "fretboard-10",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 2,
+     "source_ts": "38:50",
+     "question_he": "השורש A מסומן. הקש על דרגה 5 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "A",
+      "degree": 5
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 5
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 7
+      }
+     ],
+     "explain_he": "דרגה 5 של A היא E — מיתר 5, סריג 7, שני סריגים מעל השורש."
+    },
+    {
+     "id": "fretboard-11",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 3,
+     "source_ts": "1:32:37",
+     "question_he": "השורש A מסומן. הקש על דרגה 2 על מיתר 6.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      6
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "A",
+      "degree": 2
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 5
+     },
+     "answers": [
+      {
+       "string": 6,
+       "fret": 7
+      }
+     ],
+     "explain_he": "דרגה 2 של A היא B — מיתר 6, סריג 7: טון מעל השורש."
+    },
+    {
+     "id": "fretboard-12",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 3,
+     "source_ts": "1:32:37",
+     "question_he": "השורש C מסומן (מיתר 6, סריג 8). הקש על דרגה 5 על מיתר 5.",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "C",
+      "degree": 5
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 8
+     },
+     "answers": [
+      {
+       "string": 5,
+       "fret": 10
+      }
+     ],
+     "explain_he": "דרגה 5 של C היא G — מיתר 5, סריג 10. אותה צורה, הכול זז למעלה."
+    },
+    {
+     "id": "fretboard-13",
+     "type": "fretboard_find",
+     "skill": "fretboard-low",
+     "difficulty": 3,
+     "source_ts": "39:56",
+     "question_he": "השורש D מסומן (מיתר 6, סריג 10). מצא את דרגה 6 מתחת לשורש. (יש שני מקומות — כל אחד מהם נכון.)",
+     "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+     ],
+     "strings": [
+      6,
+      5
+     ],
+     "frets": [
+      0,
+      12
+     ],
+     "target": {
+      "key": "D",
+      "degree": 6,
+      "below_root": true
+     },
+     "root_marker": {
+      "string": 6,
+      "fret": 10
+     },
+     "answers": [
+      {
+       "string": 6,
+       "fret": 7
+      },
+      {
+       "string": 5,
+       "fret": 2
+      }
+     ],
+     "explain_he": "דרגה 6 של D היא B. מתחת לשורש: מיתר 6 סריג 7, או אותו צליל בדיוק על מיתר 5 סריג 2. שני המיתרים הנמוכים חופפים — 'המון כפילות' (⏱ 35:59)."
+    }
+   ],
+   "notes_md": "- \"לא בדיוק חישוב, כמו פשוט להכיר את מערכת היחסים\". לא לספור, אלא לראות את המקומות על הגיטרה (⏱ 1:31:47–1:31:53).\n- כבר התחלת לראות את זה: אם הטוניקה פה, הקוורטה שלה שם (⏱ 1:32:04). וכשאתה יודע איפה החמישית, היא נקודת עוגן ואין צורך לספור (⏱ 35:36).\n- להתחיל רק עם שני המיתרים הנמוכים, 6 ו-5. \"אין סיבה ללכת הלאה\" בינתיים (⏱ 1:32:37).\n- השלב הבא הוא כנראה CAGED [שחזור] (\"קייץ\" בתמלול): לוקחים אקורד ופורסים אותו לאורך הצוואר. מהמיתר החמישי אי אפשר להמשיך למעלה באותה צורה, וצריך לעבור למיתר הרביעי. למיתר הרביעי בדרך כלל לא מקדישים תרגול נפרד, חוץ מצורת ה-D (⏱ 1:33:03–1:33:28).\n- המשפט המסכם, כנראה של המורה, נאמר אחרי הפרידה (⏱ 1:30:04): **\"הכי חשוב לכתוב שירים על הדרגות\"**. ככה אפשר להחליט אילו אקורדים לשים, וגם לפענח שירים של אחרים.",
+   "ask": [
+    {
+     "id": "low-strings-map",
+     "skill": "fretboard-low",
+     "title_he": "המפה על מיתרים 6 ו-5",
+     "quote_he": "אין סיבה ללכת הלאה.",
+     "source_ts": "1:32:37",
+     "concept_he": "להתחיל רק עם שני המיתרים הנמוכים, 6 ו-5. מהשורש על מיתר 6 רואים את כל הדרגות באזור אחד.",
+     "deeper_he": "ב-G: 1=G (מיתר 6, סריג 3), 2=A (סריג 5), 3=B (סריג 7), ועל מיתר 5: 4=C (סריג 3), 5=D (סריג 5), 6=E (סריג 7). המורה אמר להתחיל רק עם 6 ו-5, \"אין סיבה ללכת הלאה\" בינתיים (⏱ 1:32:37). אותה צורה בדיוק עובדת מ-A (סריג 5) ומ-C (סריג 8). בגיטרה: זו צורה אחת שזזה, לא שש עובדות לזכור.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 6,
+        "fret": 5,
+        "kind": "degree",
+        "label": "2"
+       },
+       {
+        "string": 6,
+        "fret": 7,
+        "kind": "degree",
+        "label": "3"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה רק שני מיתרים?",
+       "keywords": [
+        "למה",
+        "רק",
+        "שני",
+        "מיתרים"
+       ],
+       "answer_he": "כי שם השורשים של רוב האקורדים, והמורה אמר: \"אין סיבה ללכת הלאה\" בינתיים (⏱ 1:32:37)."
+      },
+      {
+       "q_he": "ומה עם המיתר השני (B)?",
+       "keywords": [
+        "B",
+        "שני",
+        "שובר"
+       ],
+       "answer_he": "הוא \"שובר את המוח\", כנראה כי הכיוון בקוורטות נשבר בו (⏱ 36:46). זו שאלה פתוחה לשיעור הבא."
+      }
+     ]
+    },
+    {
+     "id": "fifth-anchor",
+     "skill": "fretboard-low",
+     "title_he": "החמישית כעוגן",
+     "quote_he": "לא בדיוק חישוב, כמו פשוט להכיר את מערכת היחסים.",
+     "source_ts": "35:36",
+     "concept_he": "כשאתה יודע איפה החמישית, היא נקודת עוגן ואין צורך לספור. מהשורש על מיתר 6, החמישית על מיתר 5 שני סריגים מעליו.",
+     "deeper_he": "ב-G השורש על מיתר 6 בסריג 3, והחמישית, D, על מיתר 5 בסריג 5 (⏱ 35:36). המורה: \"לא בדיוק חישוב, כמו פשוט להכיר את מערכת היחסים\" (⏱ 1:31:47). כבר בשיעור התחלת לראות את זה: אם הטוניקה פה, הקוורטה שלה שם (⏱ 1:32:04). ב-A: השורש בסריג 5, החמישית E על מיתר 5 בסריג 7. בגיטרה: הקוורטה (4) יושבת על מיתר 5 באותו סריג של השורש.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       },
+       {
+        "string": 5,
+        "fret": 3,
+        "kind": "degree",
+        "label": "4"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "ואיפה הקוורטה?",
+       "keywords": [
+        "קוורטה",
+        "4",
+        "רביעית"
+       ],
+       "answer_he": "על מיתר 5 באותו סריג של השורש. \"אם הטוניקה פה, הקוורטה שלה שם\" (⏱ 1:32:04)."
+      },
+      {
+       "q_he": "כמה זמן לוקח עד שרואים ולא סופרים?",
+       "keywords": [
+        "כמה",
+        "זמן",
+        "מהר"
+       ],
+       "answer_he": "המדד מההצעות לתרגול: מישהו אומר דרגה והאצבע נוחתת עליה תוך פחות משתי שניות. תרגיל המהירות בכלים מודד בדיוק את זה (⏱ 1:31:53)."
+      }
+     ]
+    },
+    {
+     "id": "sixth-below",
+     "skill": "fretboard-low",
+     "title_he": "השישית מתחת לשורש",
+     "source_ts": "39:05",
+     "concept_he": "את השישית מוצאים גם מתחת לשורש ולא רק מעליו: אותה דרגה, אוקטבה אחרת.",
+     "deeper_he": "ב-G השישית היא E: על מיתר 5 בסריג 7, או מתחת לשורש על מיתר 6 פתוח (⏱ 39:05–39:56). זה עוזר כשהיד כבר נמוכה על הצוואר, וחוסך קפיצה. ב-D (שורש על מיתר 6 בסריג 10) השישית מתחת היא B: מיתר 6 סריג 7, או מיתר 5 סריג 2. בגיטרה: מתחת לשורש על מיתר 6, השישית נמצאת שלושה סריגים למטה.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 6,
+        "fret": 0,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "זו אותה דרגה?",
+       "keywords": [
+        "אותה",
+        "דרגה",
+        "אוקטבה"
+       ],
+       "answer_he": "כן. אותה דרגה, אוקטבה אחרת (⏱ 39:05–39:56)."
+      },
+      {
+       "q_he": "למה לחפש מתחת?",
+       "keywords": [
+        "למה",
+        "מתחת"
+       ],
+       "answer_he": "כי לפעמים היא קרובה יותר ליד. המורה ביקש למצוא אותה גם מתחת לראשונה (⏱ 39:05)."
+      }
+     ]
+    },
+    {
+     "id": "caged-next",
+     "skill": "fretboard-low",
+     "title_he": "השלב הבא: CAGED [שחזור]",
+     "source_ts": "1:33:03",
+     "concept_he": "השלב הבא הוא כנראה CAGED: לוקחים אקורד ופורסים אותו לאורך הצוואר. זה יגיע בשיעור הבא.",
+     "deeper_he": "בתמלול נשמע \"קייץ\", כנראה CAGED [שחזור] (⏱ 1:33:03). מהמיתר החמישי אי אפשר להמשיך למעלה באותה צורה, וצריך לעבור למיתר הרביעי. למיתר הרביעי בדרך כלל לא מקדישים תרגול נפרד, חוץ מצורת ה-D (⏱ 1:33:28). בגיטרה: בינתיים נשארים על מיתרים 6 ו-5.",
+     "faq": [
+      {
+       "q_he": "מתי מתחילים CAGED?",
+       "keywords": [
+        "מתי",
+        "CAGED",
+        "קייץ"
+       ],
+       "answer_he": "בשיעור הבא, כנראה. בינתיים המורה אמר להישאר על 6 ו-5 (⏱ 1:32:37, 1:33:03)."
+      },
+      {
+       "q_he": "מה מיוחד בצורת D?",
+       "keywords": [
+        "D",
+        "צורה",
+        "רביעי"
+       ],
+       "answer_he": "זה היוצא מן הכלל: על מיתר 4 בדרך כלל לא מתרגלים צורה נפרדת, חוץ מצורת ה-D (⏱ 1:33:28)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "harmony-together",
+   "title_he": "לנגן ביחד: הרמוניה, מלודיה, מקצב",
+   "icon": "🎶",
+   "source_ts": "09:16",
+   "concept_he": "שני אקורדים שונים באותו זמן הם 'אקורד אחד מסובך ומפוצל' שאף אחד לא התכוון אליו (⏱ 14:04). 'ההרמוניה נבנית מסביב למנגינה' — לא בונים שתי הרמוניות במקביל, ולא 'שני בסים' (⏱ 13:32, 14:36). כשהאקורד מתחלף, המלודיה עוברת לצלילים שלו. ה-1 עובד ברוב המקרים, אבל לא על 5 ולא על 7 (⏱ 19:47). ומקצב הרמוני — כמה זמן לוקח להרמוניה להתחלף — הוא לא דאבל טיים, שהוא אותו דבר פי שניים מהר (⏱ 47:45).",
+   "exercises": [
+    {
+     "id": "harmony-together-01",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 1,
+     "source_ts": "14:04",
+     "question_he": "שני נגנים, וכל אחד מנגן אקורד אחר באותו זמן. מה יוצא?",
+     "options": [
+      "'אקורד אחד מסובך ומפוצל' שאף אחד לא התכוון אליו",
+      "הרמוניה עשירה יותר",
+      "קונטרפונקט",
+      "דאבל טיים"
+     ],
+     "answer": "'אקורד אחד מסובך ומפוצל' שאף אחד לא התכוון אליו",
+     "explain_he": "'אם אתה מנגן אקורד א' ואני מנגן אקורד ב' — אנחנו מנגנים אקורד אחד מסובך ומפוצל' (⏱ 14:04)."
+    },
+    {
+     "id": "harmony-together-02",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 1,
+     "source_ts": "13:32",
+     "question_he": "מה הכלל כשמנגנים יחד?",
+     "options": [
+      "הרמוניה אחת — והמנגינה מעליה",
+      "כל אחד בונה הרמוניה משלו",
+      "שני בסים, אחד לכל נגן",
+      "כולם מנגנים רק את ה-1"
+     ],
+     "answer": "הרמוניה אחת — והמנגינה מעליה",
+     "explain_he": "'ההרמוניה נבנית מסביב למנגינה. בגלל זה אתה לא רוצה לבנות שתי הרמוניות במקביל' (⏱ 13:32), ולא מצב של 'שני בסים' (⏱ 14:36)."
+    },
+    {
+     "id": "harmony-together-03",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 1,
+     "source_ts": "13:07",
+     "question_he": "מלווים זמרת שקשה לה לשיר ולנגן ביחד. מה נותנים לה?",
+     "options": [
+      "רק את ה-1 או את האקורדים — כדי שתחזיק את הקצב",
+      "סולו מלא",
+      "טנשנים בגבוה",
+      "מהלך אחר משלה"
+     ],
+     "answer": "רק את ה-1 או את האקורדים — כדי שתחזיק את הקצב",
+     "explain_he": "כך עלה בשיעור (⏱ 13:07): בסיס פשוט עוזר לה 'לשמור על הקצב'."
+    },
+    {
+     "id": "harmony-together-04",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 2,
+     "source_ts": "19:47",
+     "question_he": "ה-1 (תו הבית) עובד ברוב המקרים. על אילו אקורדים הוא לא הרמוני?",
+     "options": [
+      "5 ו-7",
+      "4 ו-6",
+      "1 ו-4",
+      "2 ו-3"
+     ],
+     "answer": "5 ו-7",
+     "explain_he": "'בחמישי ובשביעי' (⏱ 19:47). הדומיננטה רוצה לחזור הביתה, אז אין בה את תו הבית (⏱ 20:20)."
+    },
+    {
+     "id": "harmony-together-05",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 2,
+     "source_ts": "19:38",
+     "question_he": "הקשב: מנגנים F (דרגה 4 בדו), ומעליו התו C. איך זה נשמע?",
+     "options": [
+      "נשמע טוב — C הוא חלק מהאקורד",
+      "מתנגש"
+     ],
+     "answer": "נשמע טוב — C הוא חלק מהאקורד",
+     "explain_he": "F-A-C: התו C בתוך האקורד. 'האחד-ארבע-חמש... כולל את ה-1 הזה מלכתחילה' (⏱ 19:33–19:38) — חוץ מ-5.",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "F+C",
+         "notes": [
+          53,
+          57,
+          60,
+          65,
+          72
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "harmony-together-06",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 2,
+     "source_ts": "19:47",
+     "question_he": "הקשב: מנגנים G (דרגה 5 בדו), ומעליו התו C. איך זה נשמע?",
+     "options": [
+      "נשמע טוב — C הוא חלק מהאקורד",
+      "מתנגש"
+     ],
+     "answer": "מתנגש",
+     "explain_he": "G-B-D: אין בו C, ו-C מתחכך ב-B. זה בדיוק מה שהמורה אמר — על 5 ה-1 'בחוץ' (⏱ 19:47).",
+     "clips": [
+      {
+       "bpm": 60,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "G+C",
+         "notes": [
+          55,
+          59,
+          62,
+          67,
+          72
+         ],
+         "beats": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "harmony-together-07",
+     "type": "fill_blank",
+     "skill": "harmony-melody",
+     "difficulty": 2,
+     "source_ts": "11:47",
+     "question_he": "השלם את החסר",
+     "text_he": "ברמה מתקדמת, אחד מנגן את האקורד, והשני מנגן מעליו, בגבוה, רק ___.",
+     "options": [
+      "טנשנים",
+      "בס",
+      "אוקטבות",
+      "פאוור-קורדים"
+     ],
+     "answer": "טנשנים",
+     "explain_he": "ניגנת D על שלושת המיתרים הגבוהים מעל האקורד של המורה, וזה נתן 9, 11# ו-13 — 'זה יפה' (⏱ 11:47–12:15)."
+    },
+    {
+     "id": "harmony-together-08",
+     "type": "mcq",
+     "skill": "harmonic-rhythm",
+     "difficulty": 2,
+     "source_ts": "48:50",
+     "question_he": "מה זה 'דאבל טיים'?",
+     "options": [
+      "אותו דבר בדיוק, פי שניים מהר — למשל מ-80 ל-160 BPM",
+      "שני אקורדים בתיבה במקום אחד",
+      "סטראמינג חזק יותר",
+      "לנגן שני סבבים"
+     ],
+     "answer": "אותו דבר בדיוק, פי שניים מהר — למשל מ-80 ל-160 BPM",
+     "explain_he": "'אם יש אותם נגן 80, אז 160' — אותם בתים, אותם מרווחים (⏱ 48:50)."
+    },
+    {
+     "id": "harmony-together-09",
+     "type": "mcq",
+     "skill": "harmonic-rhythm",
+     "difficulty": 2,
+     "source_ts": "47:24",
+     "question_he": "מה זה 'מקצב הרמוני'?",
+     "options": [
+      "כמה זמן לוקח להרמוניה להתחלף — כמה אקורדים יש בתיבה",
+      "המהירות של הסטראמינג",
+      "הטמפו של השיר",
+      "הדרגה שעליה נגמר השיר"
+     ],
+     "answer": "כמה זמן לוקח להרמוניה להתחלף — כמה אקורדים יש בתיבה",
+     "explain_he": "'מקצב הרמוני — כמה אקורדים יש בתיבה' (⏱ 47:24); 'כמה זמן לוקח להרמוניה לעבור' (⏱ 47:45). בשפת הג'אם: 'שני אקורדים בתיבה במקום אחד' (⏱ 49:07)."
+    },
+    {
+     "id": "harmony-together-10",
+     "type": "mcq",
+     "skill": "harmonic-rhythm",
+     "difficulty": 3,
+     "source_ts": "47:45",
+     "question_he": "הקשב לשתי הגרסאות. מה השתנה מ-א' ל-ב'?",
+     "options": [
+      "המקצב ההרמוני — שני אקורדים בתיבה",
+      "דאבל טיים — הכול פי שניים מהר"
+     ],
+     "answer": "המקצב ההרמוני — שני אקורדים בתיבה",
+     "explain_he": "הפעמה נשארה אותה פעמה (80), אבל האקורדים מתחלפים כל שתי פעמות. זה מה שהמורה הדגים: 'זה לא דאבל טיים, זה שינוי של מקצב הרמוני' (⏱ 47:45).",
+     "clips": [
+      {
+       "bpm": 80,
+       "strum_every_beat": true,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 4
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 4
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 4
+        }
+       ],
+       "label_he": "א'"
+      },
+      {
+       "bpm": 80,
+       "strum_every_beat": true,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 2
+        }
+       ],
+       "label_he": "ב'"
+      }
+     ]
+    },
+    {
+     "id": "harmony-together-11",
+     "type": "mcq",
+     "skill": "harmonic-rhythm",
+     "difficulty": 3,
+     "source_ts": "48:50",
+     "question_he": "הקשב לשתי הגרסאות. מה השתנה מ-א' ל-ב'?",
+     "options": [
+      "המקצב ההרמוני — שני אקורדים בתיבה",
+      "דאבל טיים — הכול פי שניים מהר"
+     ],
+     "answer": "דאבל טיים — הכול פי שניים מהר",
+     "explain_he": "הכול זז פי שניים: גם הפעמה (80 → 160) וגם האקורדים. שים לב — כמו בגרסת המקצב ההרמוני (שני אקורדים בתיבה), אבל כאן גם הפעמה הוכפלה.",
+     "clips": [
+      {
+       "bpm": 80,
+       "strum_every_beat": true,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 4
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 4
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 4
+        }
+       ],
+       "label_he": "א'"
+      },
+      {
+       "bpm": 160,
+       "strum_every_beat": true,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 4
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 4
+        },
+        {
+         "label": "Am",
+         "notes": [
+          45,
+          48,
+          52,
+          57
+         ],
+         "beats": 4
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 4
+        }
+       ],
+       "label_he": "ב'"
+      }
+     ]
+    },
+    {
+     "id": "harmony-together-12",
+     "type": "mcq",
+     "skill": "harmony-melody",
+     "difficulty": 3,
+     "source_ts": "19:38",
+     "bonus": true,
+     "question_he": "בונוס: בדו מז'ור — באילו אקורדים יש את התו C?",
+     "options": [
+      "C, F, Am (דרגות 1, 4, 6)",
+      "C, G, Em (דרגות 1, 5, 3)",
+      "C, Dm, G (דרגות 1, 2, 5)",
+      "בכל אקורדי הסולם"
+     ],
+     "answer": "C, F, Am (דרגות 1, 4, 6)",
+     "explain_he": "C-E-G, F-A-C, A-C-E. על Dm הוא שביעית (נשמע טוב), על Em סקסטה קטנה (מתח), ועל G ו-Bø הוא מתנגש הכי חזק — מה שהמורה אמר על 5 ו-7."
+    }
+   ],
+   "notes_md": "### הרמוניה מול מלודיה כשמנגנים ביחד ⏱ 09:16\n\n- כשניגנתם יחד בשיעור חשבת \"מלודית\", אבל בפועל נוגנו שני אקורדים שונים באותו זמן. אקורד א' ועוד אקורד ב' יוצרים \"אקורד אחד מסובך ומפוצל\" שאף אחד לא התכוון אליו (⏱ 14:04).\n- הכלל: להפריד בין ההרמוניה למנגינה. \"ההרמוניה נבנית מסביב למנגינה\", ולכן לא בונים שתי הרמוניות במקביל ולא רוצים מצב של \"שני בסים\" (⏱ 13:26, 14:36).\n- קצת היסטוריה (⏱ 10:24): בכנסייה, בערך במאה העשירית, שרו מנגינה אחת (שירה גרגוריאנית). אחר כך הוסיפו עוד קול ועוד קול, ומהקולות שנשמעים יחד נולדו האקורדים. שלושה קולות יחד, היום לרוב ארבעה, והוזכר גם הג'אז (המשפט נקטע בתמלול).\n- ברמה מתקדמת אחד מנגן את האקורד, והשני מנגן מעליו, בגבוה, רק טנשנים (מתחים). דוגמה מהשיעור (⏱ 11:47–12:15): ניגנת D רק על שלושת המיתרים הגבוהים מעל האקורד של המורה, וזה נתן 9, 11# ו-13. [שחזור] בתמלול: \"9,1 CDS ו-13\", והוא מסתדר אם המורה ניגן C. המורה: \"זה יפה\".\n- כשמלווים זמרת שמתקשה לשיר ולנגן ביחד, נותנים לה רק את ה-1 או את האקורדים כדי שתחזיק את הקצב (⏱ 13:07).\n- שני כלים שמתחלפים ביניהם מנגנים שתי מלודיות מעל הרמוניה אחת (⏱ 15:10). אחר כך המורה ביקש שתאלתר בשירה מעל C ו-F. שניכם שרתם צלילים מתאימים, אבל לא אותם צלילים (⏱ 17:16–18:23).\n\n### אלתור על אקורד מתחלף, ומתי ה-1 \"בחוץ\" ⏱ 19:08\n\n- כשהאקורד מתחלף, המלודיה עוברת לצלילים של האקורד החדש.\n- ה-1 (תו הבית) עובד ברוב המקרים, אבל לא תמיד. הוא לא הרמוני על 5 ועל 7 (⏱ 19:38–19:47).\n- [הערה] בדו מז'ור התו C נמצא רק בתוך שלושה אקורדים: C, F ו-Am (דרגות 1, 4 ו-6). על Dm הוא שביעית, וזה נשמע טוב. על Em הוא סקסטה קטנה, וזה מתח. על G ועל Bø הוא מתנגש הכי חזק, וזה בדיוק מה שהמורה אמר.\n\n### מקצב הרמוני, לא דאבל טיים ⏱ 46:41\n\n- **דאבל טיים:** אותו דבר בדיוק, פי שניים מהר. למשל מ-80 ל-160 BPM.\n- **מקצב הרמוני:** כמה זמן לוקח להרמוניה להתחלף, כלומר כמה אקורדים יש בתיבה. בהדגמה המורה שינה את המקצב ההרמוני, לא עשה דאבל טיים (⏱ 47:45).\n- בשפת הג'אם: \"שני אקורדים בתיבה במקום אקורד אחד\" [שחזור] (⏱ 49:07).",
+   "ask": [
+    {
+     "id": "harmony-vs-melody",
+     "skill": "harmony-melody",
+     "title_he": "הרמוניה מול מלודיה",
+     "quote_he": "ההרמוניה נבנית מסביב למנגינה.",
+     "source_ts": "13:26",
+     "concept_he": "כשמנגנים ביחד, מפרידים בין ההרמוניה למנגינה. לא בונים שתי הרמוניות במקביל.",
+     "deeper_he": "כשניגנתם יחד, שני אקורדים שונים באותו זמן יצרו \"אקורד אחד מסובך ומפוצל\" שאף אחד לא התכוון אליו (⏱ 14:04). הכלל: \"ההרמוניה נבנית מסביב למנגינה\", ולא רוצים מצב של \"שני בסים\" (⏱ 13:26, 14:36). כשאחד מנגן אקורדים, השני מנגן מלודיה מעליהם; שני כלים שמתחלפים מנגנים שתי מלודיות מעל הרמוניה אחת (⏱ 15:10). בגיטרה: אם החבר מנגן אקורדים, נסה לנגן רק צליל אחד בכל פעם, מתוך האקורד שלו.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "C ו-D יחד",
+        "events": [
+         {
+          "label": "C + D",
+          "notes": [
+           48,
+           52,
+           55,
+           60,
+           62,
+           66,
+           69
+          ],
+          "beats": 4
+         }
+        ]
+       },
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 4
+         }
+        ],
+        "label_he": "רק C"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה זה נשמע רע כששנינו מנגנים אקורדים?",
+       "keywords": [
+        "רע",
+        "שנינו",
+        "אקורדים",
+        "יחד"
+       ],
+       "answer_he": "כי אקורד א' ועוד אקורד ב' יוצרים \"אקורד אחד מסובך ומפוצל\" שאף אחד לא התכוון אליו (⏱ 14:04)."
+      },
+      {
+       "q_he": "אז מה כל אחד מנגן?",
+       "keywords": [
+        "מה",
+        "כל אחד",
+        "מנגן"
+       ],
+       "answer_he": "אחד את ההרמוניה, השני מלודיה מעליה. \"ההרמוניה נבנית מסביב למנגינה\" (⏱ 13:26)."
+      },
+      {
+       "keywords": [
+        "היסטוריה",
+        "כנסייה",
+        "גרגוריאנית"
+       ],
+       "answer_he": "בכנסייה, בערך במאה העשירית, שרו מנגינה אחת. אחר כך הוסיפו עוד קולות, ומהקולות שנשמעים יחד נולדו האקורדים (⏱ 10:24)."
+      }
+     ]
+    },
+    {
+     "id": "tensions-on-top",
+     "skill": "harmony-melody",
+     "title_he": "טנשנים מלמעלה [שחזור]",
+     "quote_he": "זה יפה.",
+     "source_ts": "11:47",
+     "concept_he": "ברמה מתקדמת אחד מנגן את האקורד, והשני מנגן מעליו, בגבוה, רק טנשנים (מתחים).",
+     "deeper_he": "בשיעור ניגנת D רק על שלושת המיתרים הגבוהים מעל האקורד של המורה, וזה נתן 9, 11# ו-13 (⏱ 11:47–12:15). זה [שחזור] של התמלול, והוא מסתדר אם המורה ניגן C. המורה: \"זה יפה\". הסיבה שזה עובד: התווים של D (D, F#, A) הם 9, 11# ו-13 של C, צבע ולא התנגשות. בגיטרה: צורת D הפתוחה יושבת על שלושת המיתרים הגבוהים.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "C ומעליו D גבוה",
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C + D",
+          "notes": [
+           48,
+           52,
+           55,
+           62,
+           66,
+           69
+          ],
+          "beats": 4
+         }
+        ]
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "מה זה טנשן?",
+       "keywords": [
+        "טנשן",
+        "מתח",
+        "מה זה"
+       ],
+       "answer_he": "תו מעל האקורד שמוסיף צבע, כמו 9, 11# ו-13. בשיעור יצא מ-D על שלושת המיתרים הגבוהים (⏱ 11:47)."
+      },
+      {
+       "q_he": "למה דווקא D מעל C?",
+       "keywords": [
+        "D",
+        "C",
+        "למה"
+       ],
+       "answer_he": "כי D, F# ו-A הם 9, 11# ו-13 של C. זה [שחזור] של התמלול (⏱ 11:47–12:15)."
+      }
+     ]
+    },
+    {
+     "id": "one-outside",
+     "skill": "harmony-melody",
+     "title_he": "מתי ה-1 \"בחוץ\"",
+     "source_ts": "19:38",
+     "concept_he": "כשהאקורד מתחלף, המלודיה עוברת לצלילים של האקורד החדש. ה-1 (תו הבית) עובד ברוב המקרים, אבל הוא לא הרמוני על 5 ועל 7.",
+     "deeper_he": "ה-1 לא הרמוני על 5 ועל 7 (⏱ 19:38–19:47). [הערה] בדו מז'ור התו C נמצא רק בתוך C, F ו-Am (דרגות 1, 4 ו-6). על Dm הוא שביעית, וזה נשמע טוב; על Em הוא סקסטה קטנה, וזה מתח; על G ועל Bø הוא מתנגש הכי חזק. אחר כך המורה ביקש שתאלתר בשירה מעל C ו-F, ושניכם שרתם צלילים מתאימים, אבל לא אותם צלילים (⏱ 17:16–18:23). בגיטרה: נגן C על מיתר 5 סריג 3 מעל כל אקורד בסולם ותשמע איפה הוא נוחת ואיפה מתנגש.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "C מעל F",
+        "events": [
+         {
+          "label": "F + C",
+          "notes": [
+           53,
+           57,
+           60,
+           65,
+           72
+          ],
+          "beats": 4
+         }
+        ]
+       },
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "C מעל G",
+        "events": [
+         {
+          "label": "G + C",
+          "notes": [
+           55,
+           59,
+           62,
+           67,
+           72
+          ],
+          "beats": 4
+         }
+        ]
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה ה-1 מתנגש על 5?",
+       "keywords": [
+        "למה",
+        "מתנגש",
+        "5",
+        "1"
+       ],
+       "answer_he": "כי התו C לא נמצא באקורד G, והוא יושב חצי טון מעל B שבאקורד. המורה: לא הרמוני על 5 ועל 7 (⏱ 19:38–19:47)."
+      },
+      {
+       "q_he": "ומה עם Dm ו-Em?",
+       "keywords": [
+        "Dm",
+        "Em",
+        "2",
+        "3"
+       ],
+       "answer_he": "[הערה] על Dm הוא שביעית ועל Em סקסטה קטנה. זו שאלה פתוחה לשיעור הבא (⏱ 19:47)."
+      }
+     ]
+    },
+    {
+     "id": "harmonic-rhythm",
+     "skill": "harmonic-rhythm",
+     "title_he": "מקצב הרמוני, לא דאבל טיים",
+     "source_ts": "46:41",
+     "concept_he": "דאבל טיים: אותו דבר בדיוק, פי שניים מהר. מקצב הרמוני: כמה זמן לוקח להרמוניה להתחלף, כלומר כמה אקורדים יש בתיבה.",
+     "deeper_he": "דאבל טיים הוא למשל מעבר מ-80 ל-160 BPM (⏱ 46:41). בהדגמה המורה שינה את המקצב ההרמוני ולא עשה דאבל טיים (⏱ 47:45): אותו טמפו, יותר אקורדים בתיבה. בשפת הג'אם: \"שני אקורדים בתיבה במקום אקורד אחד\" [שחזור] (⏱ 49:07). בגיטרה: נסה 1-5-6-4 על 80 עם אקורד בתיבה ואז שניים בתיבה; היד הימנית לא משנה מהירות, רק היד השמאלית.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 80,
+        "strum_every_beat": true,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 4
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 4
+         },
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 4
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 4
+         }
+        ],
+        "label_he": "אקורד בתיבה"
+       },
+       {
+        "bpm": 80,
+        "strum_every_beat": true,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "שניים בתיבה"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "איך יודעים אם זה דאבל טיים?",
+       "keywords": [
+        "דאבל",
+        "טיים",
+        "יודעים"
+       ],
+       "answer_he": "אם הכול נהיה פי שניים מהר, גם הפעמה, זה דאבל טיים (למשל 80 ל-160). אם הפעמה נשארת ורק האקורדים מתחלפים מהר יותר, זה מקצב הרמוני (⏱ 46:41, 47:45)."
+      },
+      {
+       "q_he": "מה זה תיבה?",
+       "keywords": [
+        "תיבה",
+        "מה זה"
+       ],
+       "answer_he": "יחידת זמן של כמה פעמות, בדרך כלל ארבע. \"שני אקורדים בתיבה\" אומר אקורד כל שתי פעמות [שחזור] (⏱ 49:07)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "relative-minor",
+   "title_he": "המינור הטבעי",
+   "icon": "🌙",
+   "source_ts": "49:31",
+   "concept_he": "הסולם המז'ורי הוא 'הגביע הקדוש' (⏱ 50:04). מתחילים מכל אחת משבע הדרגות ומקבלים מודוס; מהשישית — האיאולי, המינור הטבעי (⏱ 50:34). הכלל: יורדים שני שמות תווים, ותמיד בדיוק טון וחצי (⏱ 52:01, 53:41): G → Em, D → Bm, B → G#m. ובכיוון ההפוך — 'שתיים קדימה' (⏱ 1:06:58). השם נשמר לפי הכלל: המינור של D# מז'ור הוא B#m ולא Cm — 'זה נטו הקונבנציה' (⏱ 56:48, 1:06:19).",
+   "exercises": [
+    {
+     "id": "relative-minor-01",
+     "type": "mcq",
+     "skill": "modes",
+     "difficulty": 1,
+     "source_ts": "50:34",
+     "question_he": "על איזו דרגה של הסולם המז'ורי יושב המודוס האיאולי — המינור הטבעי?",
+     "options": [
+      "6",
+      "2",
+      "5",
+      "7"
+     ],
+     "answer": "6",
+     "explain_he": "'האיאוליאן יושב על השישי' (⏱ 50:34) — הבית העצוב. מתחילים מכל דרגה ומקבלים מודוס: יוני, דורי, פריגי, לידי, מיקסולידי, איאולי, לוקרי."
+    },
+    {
+     "id": "relative-minor-02",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 1,
+     "source_ts": "51:18",
+     "direction": "major_to_minor",
+     "given": "G",
+     "question_he": "מה המינור הטבעי (המקביל) של G מז'ור?",
+     "options": [
+      "Em",
+      "Gm",
+      "Am",
+      "Bm"
+     ],
+     "answer": "Em",
+     "explain_he": "תווי G מז'ור מ-E עד E נותנים E מינור טבעי (⏱ 51:00–51:18). G → F → E: שני שמות אחורה."
+    },
+    {
+     "id": "relative-minor-03",
+     "type": "fill_blank",
+     "skill": "relative-minor",
+     "difficulty": 1,
+     "source_ts": "52:01",
+     "question_he": "השלם את החסר",
+     "text_he": "כדי למצוא את המינור הטבעי של מז'ור יורדים שני שמות תווים — ותמיד בדיוק ___.",
+     "options": [
+      "טון וחצי",
+      "טון",
+      "שני טונים",
+      "חצי טון"
+     ],
+     "answer": "טון וחצי",
+     "explain_he": "'אתה יורד שתי שמות, אתה יורד טון וחצי' (⏱ 52:01). 'ותמיד חייב להיות 1.5' (⏱ 53:41)."
+    },
+    {
+     "id": "relative-minor-04",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 1,
+     "source_ts": "52:32",
+     "direction": "major_to_minor",
+     "given": "D",
+     "question_he": "מה המינור הטבעי (המקביל) של D מז'ור?",
+     "options": [
+      "Bm",
+      "Am",
+      "Em",
+      "F#m"
+     ],
+     "answer": "Bm",
+     "explain_he": "D → C → B: B מינור (⏱ 52:32)."
+    },
+    {
+     "id": "relative-minor-05",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 1,
+     "source_ts": "1:14:03",
+     "direction": "major_to_minor",
+     "given": "C",
+     "question_he": "מה המינור הטבעי (המקביל) של C מז'ור?",
+     "options": [
+      "Am",
+      "Em",
+      "Dm",
+      "Gm"
+     ],
+     "answer": "Am",
+     "explain_he": "C → B → A: A מינור. 'מ-C ל-A, מ-G ל-E, מ-D ל-B' (⏱ 1:14:03)."
+    },
+    {
+     "id": "relative-minor-06",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "52:57",
+     "direction": "major_to_minor",
+     "given": "B",
+     "question_he": "מה המינור הטבעי (המקביל) של B מז'ור?",
+     "options": [
+      "G#m",
+      "F#m",
+      "Gm",
+      "Am"
+     ],
+     "answer": "G#m",
+     "explain_he": "B → A → G, ובדיוק טון וחצי: G#. בשיעור אמרת F# מינור — אבל מ-B ל-F# יש שני טונים וחצי. התשובה G# מינור (⏱ 52:57–53:39)."
+    },
+    {
+     "id": "relative-minor-07",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "54:24",
+     "direction": "major_to_minor",
+     "given": "E",
+     "question_he": "מה המינור הטבעי (המקביל) של E מז'ור?",
+     "options": [
+      "C#m",
+      "Cm",
+      "Am",
+      "Bm"
+     ],
+     "answer": "C#m",
+     "explain_he": "E → D → C, טון וחצי מתחת ל-E: C#. 'תמיד חייב לרדת שני שמות של תווים' (⏱ 54:24)."
+    },
+    {
+     "id": "relative-minor-08",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "54:41",
+     "direction": "major_to_minor",
+     "given": "A",
+     "question_he": "מה המינור הטבעי (המקביל) של A מז'ור?",
+     "options": [
+      "F#m",
+      "Fm",
+      "Em",
+      "Dm"
+     ],
+     "answer": "F#m",
+     "explain_he": "A → G → F, טון וחצי: F#. F# מינור (⏱ 54:41)."
+    },
+    {
+     "id": "relative-minor-09",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "52:01",
+     "bonus": true,
+     "direction": "major_to_minor",
+     "given": "F",
+     "question_he": "מה המינור הטבעי (המקביל) של F מז'ור?",
+     "options": [
+      "Dm",
+      "Fm",
+      "Am",
+      "Gm"
+     ],
+     "answer": "Dm",
+     "explain_he": "F → E → D, טון וחצי: D. D מינור. [בונוס] F מז'ור לא עלה בשיעור, אבל הכלל זהה בכל סולם."
+    },
+    {
+     "id": "relative-minor-10",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "1:06:58",
+     "direction": "minor_to_major",
+     "given": "Em",
+     "question_he": "Em הוא מינור טבעי. מה המז'ור המקביל שלו?",
+     "options": [
+      "G",
+      "C",
+      "B",
+      "A"
+     ],
+     "answer": "G",
+     "explain_he": "בכיוון ההפוך — 'שתיים קדימה' (⏱ 1:06:58): E → F → G, טון וחצי מעל. G מז'ור."
+    },
+    {
+     "id": "relative-minor-11",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 2,
+     "source_ts": "1:06:58",
+     "direction": "minor_to_major",
+     "given": "F#m",
+     "question_he": "F#m הוא מינור טבעי. מה המז'ור המקביל שלו?",
+     "options": [
+      "A",
+      "G",
+      "B",
+      "D"
+     ],
+     "answer": "A",
+     "explain_he": "F# → G → A, טון וחצי מעל F#: A. A מז'ור — ואכן F#m הוא דרגה 6 של A."
+    },
+    {
+     "id": "relative-minor-12",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 3,
+     "source_ts": "55:36",
+     "direction": "major_to_minor",
+     "given": "C#",
+     "question_he": "מה המינור הטבעי (המקביל) של C# מז'ור?",
+     "options": [
+      "A#m",
+      "Bm",
+      "B♭m",
+      "Am"
+     ],
+     "answer": "A#m",
+     "explain_he": "C# → B → A, וטון וחצי מתחת ל-C#: A#. A# מינור — 'התחלתי מ-שארפ' (⏱ 55:36)."
+    },
+    {
+     "id": "relative-minor-13",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 3,
+     "source_ts": "56:27",
+     "direction": "major_to_minor",
+     "given": "E♭",
+     "question_he": "מה המינור הטבעי (המקביל) של E♭ מז'ור?",
+     "options": [
+      "Cm",
+      "C#m",
+      "B#m",
+      "B♭m"
+     ],
+     "answer": "Cm",
+     "explain_he": "E♭ → D → C, טון וחצי מתחת: C. C מינור. 'E flat major זה C minor' (⏱ 56:27)."
+    },
+    {
+     "id": "relative-minor-14",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 3,
+     "source_ts": "56:48",
+     "direction": "major_to_minor",
+     "given": "D#",
+     "question_he": "מה המינור הטבעי (המקביל) של D# מז'ור?",
+     "options": [
+      "B#m",
+      "Cm",
+      "A#m",
+      "Bm"
+     ],
+     "answer": "B#m",
+     "explain_he": "D# → C → B, טון וחצי מתחת ל-D#: B#. 'מתמטית' חייבים לרדת שני שמות — B#m, לא Cm, למרות שזה נשמע כמו Cm (⏱ 56:48–57:02)."
+    },
+    {
+     "id": "relative-minor-15",
+     "type": "relative_minor",
+     "skill": "relative-minor",
+     "difficulty": 3,
+     "source_ts": "1:05:12",
+     "direction": "major_to_minor",
+     "given": "C♭",
+     "question_he": "מה המינור הטבעי (המקביל) של C♭ מז'ור?",
+     "options": [
+      "A♭m",
+      "G#m",
+      "Am",
+      "B♭m"
+     ],
+     "answer": "A♭m",
+     "explain_he": "C♭ → B → A, טון וחצי מתחת: A♭. A♭ מינור (⏱ 1:05:12). G#m נשמע אותו דבר, אבל זה שם של סולם אחר."
+    },
+    {
+     "id": "relative-minor-16",
+     "type": "mcq",
+     "skill": "spelling",
+     "difficulty": 3,
+     "source_ts": "56:48",
+     "question_he": "למה המינור של D# מז'ור נכתב B#m ולא Cm?",
+     "options": [
+      "כי חייבים לרדת שני שמות תווים (D → C → B), והשם מראה באיזה סולם אנחנו",
+      "כי B# נשמע אחרת מ-C",
+      "כי Cm לא קיים",
+      "כי בגיטרה אין C"
+     ],
+     "answer": "כי חייבים לרדת שני שמות תווים (D → C → B), והשם מראה באיזה סולם אנחנו",
+     "explain_he": "B# נשמע כמו C, אבל 'זה נטו הקונבנציה' — כדי שכולם ידברו באותה שפה (⏱ 1:06:05–1:06:19)."
+    },
+    {
+     "id": "relative-minor-17",
+     "type": "mcq",
+     "skill": "spelling",
+     "difficulty": 3,
+     "source_ts": "58:51",
+     "question_he": "מה עשה הכיוון המושווה ('הפסנתר המושווה' של באך)?",
+     "options": [
+      "F# ו-G♭ הפכו לאותו צליל — קצת פחות טוהר, ובתמורה הרמוניה בכל הסולמות",
+      "הוסיף רבעי טונים",
+      "ביטל את הדיאזים",
+      "כיוון את הגיטרה בקוורטות"
+     ],
+     "answer": "F# ו-G♭ הפכו לאותו צליל — קצת פחות טוהר, ובתמורה הרמוניה בכל הסולמות",
+     "explain_he": "במאה ה-16 F# ו-G♭ לא היו אותו צליל (⏱ 59:39). החליטו על צליל אחד, ו'בלעדיו אין הרמוניה' — אין ג'אז ואין רוקנרול (⏱ 1:00:08). השמות הישנים נשארו, ולכן B# עדיין קיים בכתיב (⏱ 1:03:52). [הערה] היסטורית, 'הפסנתר המושווה' של באך כתוב לכיוון 'מאוזן'; הכיוון המושווה המלא התקבע מאוחר יותר."
+    },
+    {
+     "id": "relative-minor-18",
+     "type": "mcq",
+     "skill": "relative-minor",
+     "difficulty": 3,
+     "source_ts": "1:07:19",
+     "bonus": true,
+     "question_he": "בונוס — שאלה פתוחה לשיעור הבא: לפי הכלל 'שתיים קדימה, טון וחצי', מה המז'ור המקביל של C♭ מינור?",
+     "options": [
+      "E𝄫 מז'ור (נשמע כמו D)",
+      "E♭ מז'ור",
+      "D מז'ור",
+      "E מז'ור"
+     ],
+     "answer": "E𝄫 מז'ור (נשמע כמו D)",
+     "explain_he": "C♭ → D → E, וטון וחצי מעל C♭ (שנשמע כמו B) הוא מה שנשמע כמו D — כלומר E𝄫. בשיעור יצא E♭ מז'ור (⏱ 1:07:19); כנראה התערבב עם C מינור, שהמקביל שלו באמת E♭. שווה לבדוק עם יונתן."
+    }
+   ],
+   "notes_md": "### מודוסים והמינור הטבעי ⏱ 49:31\n\n- הסולם המז'ורי הוא \"הגביע הקדוש\" של המוזיקה המערבית. אם מתחילים מכל אחת משבע הדרגות ומנגנים רק את תווי הסולם, מקבלים שבעה מודוסים: יוני, דורי, פריגי, לידי, מיקסולידי, איאולי ולוקרי. בתמלול חלק מהשמות משובשים, והרשימה כאן מלאה.\n- האיאולי יושב על הדרגה השישית, והוא המינור הטבעי. דוגמה: מנגנים את תווי G מז'ור מ-E עד E ומקבלים E מינור טבעי (⏱ 51:00–51:18).\n- **הכלל:** כדי למצוא את המינור הטבעי (המקביל) של כל מז'ור יורדים שני שמות תווים, ותמיד בדיוק טון וחצי (⏱ 52:01, 53:41, 54:24).\n\n| מז'ור | המינור הטבעי שלו | ⏱ |\n|---|---|---|\n| G | Em | 51:18 |\n| D | Bm | 52:32 |\n| B | G#m | 53:36 |\n| E | C#m | 54:24 |\n| A | F#m | 54:41 |\n| C# | A#m | 55:36 |\n| E♭ | Cm | 56:27 |\n| D# | B#m | 56:48 |\n| C♭ | A♭m | 1:05:12 |\n\n- **הטעות שעשית:** ב-B מז'ור אמרת F# מינור. אבל מ-B ל-F# יש שני טונים וחצי, והמרחק חייב להיות טון וחצי, ולכן התשובה היא G# מינור (⏱ 52:57–53:39).\n- **הכיוון ההפוך,** ממינור למז'ור שלו: \"שתיים קדימה\". עולים שני שמות תווים, שוב טון וחצי (⏱ 1:06:58).\n- **הקשר למהלכים** (⏱ 1:10:28–1:12:21): המהלך 6-4-1-5 במז'ור כבר נמצא במינור הטבעי. כשסופרים מהמינור, אותו מהלך נקרא 1-6-3-7. ב-G זה Em – C – G – D.\n\n### למה B# ו-C♭: כתיב וכיוון מושווה ⏱ 56:48\n\n- המינור של D# מז'ור הוא B# מינור ולא C מינור, כי \"מתמטית\" חייבים לרדת שני שמות תווים. B# נשמע כמו C, אבל השם מראה באיזה סולם אנחנו (⏱ 56:48–57:02). \"זה נטו הקונבנציה\", כדי שכולם ידברו באותה שפה (⏱ 1:06:05–1:06:19).\n- C מינור פתוח קשה, וכמעט אף אחד לא מנגן אותו. \"הדרך הכי טובה\" היא עם תשיעית ומיתר מושתק. התשיעית היא \"האקסטרה אינפורמציה\" שעושה את האקורד יפה (⏱ 57:18–57:59).\n- **כיוון מושווה** (⏱ 58:51): במאה ה-16 F# ו-G♭ לא היו אותו צליל. זה דומה למקאמים, שבהם הצליל שונה בעלייה ובירידה. ב\"פסנתר המושווה\" של באך החליטו על צליל אחד במקום שניים. זה עולה משהו בטוהר המרווחים, אבל \"בלעדיו אין הרמוניה\": אין ג'אז ואין רוקנרול. הכינור לא מושווה, כי אין לו סריגים. השמות הישנים נשארו, ולכן B# עדיין קיים בכתיב (⏱ 1:03:52–1:04:09).\n- \"הרבה פעמים דברים טובים נוצרים בגלל מגבלות\" (⏱ 1:00:55).",
+   "ask": [
+    {
+     "id": "modes",
+     "skill": "modes",
+     "title_he": "שבעת המודוסים",
+     "quote_he": "הגביע הקדוש",
+     "source_ts": "49:31",
+     "concept_he": "אם מתחילים מכל אחת משבע הדרגות ומנגנים רק את תווי הסולם, מקבלים שבעה מודוסים. האיאולי, על דרגה 6, הוא המינור הטבעי.",
+     "deeper_he": "הסולם המז'ורי הוא \"הגביע הקדוש\" של המוזיקה המערבית (⏱ 49:31). המודוסים: יוני, דורי, פריגי, לידי, מיקסולידי, איאולי ולוקרי. בתמלול חלק מהשמות משובשים, והרשימה כאן מלאה. דוגמה: מנגנים את תווי G מז'ור מ-E עד E ומקבלים E מינור טבעי (⏱ 51:00–51:18). בגיטרה: E מינור יושב על מיתר 6 פתוח, שהוא בדיוק דרגה 6 של G.",
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 6,
+        "fret": 0,
+        "kind": "degree",
+        "label": "6"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "מה זה מודוס?",
+       "keywords": [
+        "מודוס",
+        "מה זה"
+       ],
+       "answer_he": "אותם תווים של סולם, עם בית אחר: מתחילים מדרגה אחרת. ממז'ור יוצאים שבעה מודוסים (⏱ 49:31)."
+      },
+      {
+       "q_he": "איזה מודוס הוא המינור?",
+       "keywords": [
+        "איזה",
+        "מינור",
+        "איאולי"
+       ],
+       "answer_he": "האיאולי, על דרגה 6. תווי G מז'ור מ-E עד E נותנים E מינור טבעי (⏱ 51:00–51:18)."
+      }
+     ]
+    },
+    {
+     "id": "relative-rule",
+     "skill": "relative-minor",
+     "title_he": "איך מוצאים את המינור המקביל",
+     "quote_he": "יורדים שני שמות תווים, ותמיד בדיוק טון וחצי.",
+     "source_ts": "52:01",
+     "concept_he": "מכל סולם מז'ור יורדים שני שמות תווים ומקבלים את המינור הטבעי שלו. המרחק תמיד טון וחצי.",
+     "deeper_he": "המינור הטבעי הוא המודוס האיאולי, והוא יושב על דרגה 6 של המז'ור (⏱ 51:00). לכן אותם תווים בדיוק, רק עם בית אחר: תווי G מז'ור מ-E עד E נותנים E מינור. יורדים שני שמות, G ← F ← E, ובודקים: מ-G ל-E יש טון וחצי. אם יצא מרחק אחר, השם לא נכון: מ-B ל-F# יש שני טונים וחצי, ולכן המינור של B הוא G#m (⏱ 52:57). בגיטרה: אקורד המינור המקביל הוא האקורד של דרגה 6, על מיתר 5 שני סריגים מעל החמישית.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 70,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         }
+        ]
+       }
+      ]
+     },
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 7,
+        "kind": "degree",
+        "label": "6"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה חייבים לרדת שני שמות תווים?",
+       "keywords": [
+        "למה",
+        "שני",
+        "שמות"
+       ],
+       "answer_he": "כי השם מראה באיזה סולם אנחנו. מתמטית חייבים לרדת שני שמות תווים, גם אם יוצא B# (⏱ 56:48)."
+      },
+      {
+       "q_he": "ואיך הולכים מהמינור למז'ור?",
+       "keywords": [
+        "הפוך",
+        "מז'ור",
+        "ממינור"
+       ],
+       "answer_he": "\"שתיים קדימה\": עולים שני שמות תווים, שוב טון וחצי (⏱ 1:06:58)."
+      },
+      {
+       "keywords": [
+        "טבלה",
+        "כל",
+        "סולמות"
+       ],
+       "answer_he": "G→Em, D→Bm, B→G#m, E→C#m, A→F#m, C#→A#m, E♭→Cm, D#→B#m, C♭→A♭m (⏱ 51:18–1:05:12)."
+      }
+     ]
+    },
+    {
+     "id": "b-mistake",
+     "skill": "relative-minor",
+     "title_he": "הטעות מהשיעור: B מז'ור",
+     "source_ts": "52:57",
+     "concept_he": "ב-B מז'ור נאמר F# מינור. אבל מ-B ל-F# יש שני טונים וחצי, והמרחק חייב להיות טון וחצי, ולכן התשובה היא G# מינור.",
+     "deeper_he": "הטעות: ב-B מז'ור אמרת F# מינור (⏱ 52:57–53:39). הבדיקה: יורדים שני שמות, B ← A# ← G#, והמרחק טון וחצי. F# הוא שלושה שמות למטה (B ← A ← G ← F#), ושני טונים וחצי: זה כבר דרגה 5, לא 6. באותה דרך: המינור של E הוא C#m ולא Cm (⏱ 54:24). בגיטרה: B על מיתר 5 בסריג 2, ו-G# על מיתר 6 בסריג 4.",
+     "faq": [
+      {
+       "q_he": "איך לא לטעות שוב?",
+       "keywords": [
+        "איך",
+        "לטעות",
+        "שוב",
+        "לבדוק"
+       ],
+       "answer_he": "תמיד שני שמות תווים, ואז בדיקה: טון וחצי. אם יצא מרחק אחר, השם לא נכון (⏱ 52:57–53:39)."
+      },
+      {
+       "q_he": "למה F# מפתה?",
+       "keywords": [
+        "F#",
+        "מפתה",
+        "למה"
+       ],
+       "answer_he": "כי F# הוא החמישית של B, תו בולט בסולם. אבל המינור המקביל יושב על דרגה 6, טון וחצי מתחת לשורש (⏱ 52:57)."
+      }
+     ]
+    },
+    {
+     "id": "minor-view",
+     "skill": "relative-minor",
+     "title_he": "1-6-3-7: אותו מהלך מהמינור",
+     "source_ts": "1:10:28",
+     "concept_he": "המהלך 6-4-1-5 במז'ור כבר נמצא במינור הטבעי. כשסופרים מהמינור, אותו מהלך נקרא 1-6-3-7.",
+     "deeper_he": "ב-G, 6-4-1-5 הוא Em – C – G – D. כשסופרים מ-Em כ-1, אותו מהלך נקרא 1-6-3-7 (⏱ 1:10:28–1:12:21). אלה אותם אקורדים בדיוק, רק הבית זז מ-G ל-Em. ב-C: Am – F – C – G הוא 6-4-1-5, ומ-Am הוא 1-6-3-7. בגיטרה: השורש של Em על מיתר 6 פתוח או על מיתר 5 בסריג 7.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 76,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "Em",
+          "notes": [
+           52,
+           55,
+           59,
+           64
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "D",
+          "notes": [
+           50,
+           54,
+           57,
+           62
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "Em – C – G – D"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "אז זה מז'ור או מינור?",
+       "keywords": [
+        "מז'ור",
+        "מינור",
+        "אז"
+       ],
+       "answer_he": "תלוי איפה הבית. אותם אקורדים: מ-G זה 6-4-1-5, ומ-Em זה 1-6-3-7 (⏱ 1:11:44)."
+      },
+      {
+       "q_he": "איך ממירים דרגה ממז'ור למינור?",
+       "keywords": [
+        "ממירים",
+        "להמיר",
+        "דרגה"
+       ],
+       "answer_he": "דרגה 6 במז'ור היא 1 במינור, 4 היא 6, 1 היא 3, ו-5 היא 7 (⏱ 1:10:28)."
+      }
+     ]
+    },
+    {
+     "id": "spelling",
+     "skill": "spelling",
+     "title_he": "למה B# ו-C♭",
+     "quote_he": "זה נטו הקונבנציה.",
+     "source_ts": "56:48",
+     "concept_he": "המינור של D# מז'ור הוא B# מינור ולא C מינור, כי חייבים לרדת שני שמות תווים. B# נשמע כמו C, אבל השם מראה באיזה סולם אנחנו.",
+     "deeper_he": "מ-D# יורדים שני שמות: D# ← C𝄪 ← B#, ולכן B#m (⏱ 56:48–57:02). \"זה נטו הקונבנציה\", כדי שכולם ידברו באותה שפה (⏱ 1:06:05–1:06:19). באותה דרך המינור של C♭ מז'ור הוא A♭m ולא G#m (⏱ 1:05:12). בגיטרה: B#m נשמע ומנוגן כמו Cm; C מינור פתוח קשה, ו\"הדרך הכי טובה\" היא עם תשיעית ומיתר מושתק (⏱ 57:18–57:59).",
+     "faq": [
+      {
+       "q_he": "אז למה לא פשוט לכתוב Cm?",
+       "keywords": [
+        "למה",
+        "Cm",
+        "פשוט"
+       ],
+       "answer_he": "כי מתמטית יורדים שני שמות תווים, והשם מראה באיזה סולם אנחנו. \"זה נטו הקונבנציה\" (⏱ 56:48, 1:06:05)."
+      },
+      {
+       "q_he": "איך מנגנים C מינור בנוחות?",
+       "keywords": [
+        "איך",
+        "Cm",
+        "נוח",
+        "תשיעית"
+       ],
+       "answer_he": "C מינור פתוח קשה. \"הדרך הכי טובה\" היא עם תשיעית ומיתר מושתק; התשיעית היא \"האקסטרה אינפורמציה\" שעושה את האקורד יפה (⏱ 57:18–57:59)."
+      }
+     ]
+    },
+    {
+     "id": "temperament",
+     "skill": "spelling",
+     "title_he": "כיוון מושווה",
+     "quote_he": "הרבה פעמים דברים טובים נוצרים בגלל מגבלות.",
+     "source_ts": "58:51",
+     "concept_he": "במאה ה-16 F# ו-G♭ לא היו אותו צליל. בכיוון המושווה החליטו על צליל אחד במקום שניים, והשמות הישנים נשארו.",
+     "deeper_he": "זה דומה למקאמים, שבהם הצליל שונה בעלייה ובירידה (⏱ 58:51). ב\"פסנתר המושווה\" של באך החליטו על צליל אחד; זה עולה משהו בטוהר המרווחים, אבל \"בלעדיו אין הרמוניה\": אין ג'אז ואין רוקנרול. \"הרבה פעמים דברים טובים נוצרים בגלל מגבלות\" (⏱ 1:00:55). הכינור לא מושווה, כי אין לו סריגים; השמות הישנים נשארו, ולכן B# עדיין קיים בכתיב (⏱ 1:03:52–1:04:09). בגיטרה: הסריגים הם הכיוון המושווה, לכן F# ו-G♭ יושבים באותו סריג. [הערה] היסטורית, 'הפסנתר המושווה' של באך כתוב לכיוון 'מאוזן'; הכיוון המושווה המלא התקבע מאוחר יותר.",
+     "faq": [
+      {
+       "q_he": "למה לגיטרה יש כיוון מושווה ולכינור לא?",
+       "keywords": [
+        "כינור",
+        "סריגים",
+        "למה"
+       ],
+       "answer_he": "כי לגיטרה יש סריגים קבועים, ולכינור אין (⏱ 1:03:52–1:04:09)."
+      },
+      {
+       "q_he": "מה הפסדנו בכיוון המושווה?",
+       "keywords": [
+        "הפסדנו",
+        "מחיר",
+        "טוהר"
+       ],
+       "answer_he": "משהו בטוהר המרווחים. אבל \"בלעדיו אין הרמוניה\": אין ג'אז ואין רוקנרול (⏱ 58:51)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intervals",
+   "title_he": "מרווחים: היפוך וקווינטה",
+   "icon": "↕️",
+   "source_ts": "1:07:41",
+   "concept_he": "לכל מרווח יש הפוך שמשלים אותו לאוקטבה: לעלות קווינטה זה כמו לרדת קוורטה (⏱ 1:08:51). הזוגות 5↔4, 3↔6, 2↔7, וגדול הופך לקטן (⏱ 1:09:31). טריק 'פחות שלוש': כדי למצוא קווינטה יורדים שלושה שמות — G, F, E, D: הקווינטה של G היא D (⏱ 1:15:28). והקווינטה היא ההרמוניה הכי משלימה שאינה אוקטבה: אוקטבה 2:1, קווינטה 3:2 — הגלים נפגשים כל שלושה (⏱ 1:19:38). מכאן הפאוור-קורד: 1 ועוד 5 (⏱ 1:21:18).",
+   "exercises": [
+    {
+     "id": "intervals-01",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 1,
+     "source_ts": "1:08:51",
+     "given": "קווינטה",
+     "question_he": "לעלות בקווינטה זה כמו לרדת ב...?",
+     "options": [
+      "קוורטה",
+      "קווינטה",
+      "סקסטה קטנה",
+      "טרצה גדולה"
+     ],
+     "answer": "קוורטה",
+     "explain_he": "'אם אני עולה בקווינטה — זה כמו לרדת בקוורטה' (⏱ 1:08:51). 5+4=9: יחד הם אוקטבה."
+    },
+    {
+     "id": "intervals-02",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 1,
+     "source_ts": "1:09:10",
+     "given": "טרצה גדולה",
+     "question_he": "לעלות בטרצה גדולה זה כמו לרדת ב...?",
+     "options": [
+      "סקסטה קטנה",
+      "סקסטה גדולה",
+      "טרצה קטנה",
+      "קוורטה"
+     ],
+     "answer": "סקסטה קטנה",
+     "explain_he": "'טרצות גדולות הופכות לסקסטות קטנות' (⏱ 1:09:10). 3+6=9, וגדול הופך לקטן."
+    },
+    {
+     "id": "intervals-03",
+     "type": "mcq",
+     "skill": "intervals",
+     "difficulty": 1,
+     "source_ts": "1:08:58",
+     "question_he": "מ-C עולים טרצה גדולה ל-E. איך מגיעים לאותו E בירידה?",
+     "options": [
+      "יורדים סקסטה קטנה",
+      "יורדים סקסטה גדולה",
+      "יורדים טרצה קטנה",
+      "יורדים קווינטה"
+     ],
+     "answer": "יורדים סקסטה קטנה",
+     "explain_he": "'אם אני עולה בטרצה גדולה, נגיד מדו למי, זה כמו לרדת בסקסטה קטנה' (⏱ 1:08:58)."
+    },
+    {
+     "id": "intervals-04",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 2,
+     "source_ts": "1:09:15",
+     "given": "טרצה קטנה",
+     "question_he": "לעלות בטרצה קטנה זה כמו לרדת ב...?",
+     "options": [
+      "סקסטה גדולה",
+      "סקסטה קטנה",
+      "טרצה גדולה",
+      "קווינטה"
+     ],
+     "answer": "סקסטה גדולה",
+     "explain_he": "'עליתי בטרצה קטנה — זה כמו לרדת בסקסטה גדולה' (⏱ 1:09:15)."
+    },
+    {
+     "id": "intervals-05",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 2,
+     "source_ts": "1:08:56",
+     "given": "קוורטה",
+     "question_he": "לעלות בקוורטה זה כמו לרדת ב...?",
+     "options": [
+      "קווינטה",
+      "קוורטה",
+      "סקסטה גדולה",
+      "טרצה קטנה"
+     ],
+     "answer": "קווינטה",
+     "explain_he": "'אם אתה עולה בקוורטה, זה כמו לרדת בקווינטה, כי זה אותו דבר' (⏱ 1:08:56)."
+    },
+    {
+     "id": "intervals-06",
+     "type": "mcq",
+     "skill": "intervals",
+     "difficulty": 2,
+     "source_ts": "1:09:31",
+     "question_he": "מהם זוגות ההיפוך?",
+     "options": [
+      "5 ו-4 · 3 ו-6 · 2 ו-7",
+      "5 ו-3 · 4 ו-6 · 2 ו-7",
+      "5 ו-6 · 3 ו-4 · 2 ו-7",
+      "5 ו-4 · 3 ו-7 · 2 ו-6"
+     ],
+     "answer": "5 ו-4 · 3 ו-6 · 2 ו-7",
+     "explain_he": "'5 ו-4, 3 ו-6, 2 ו-7' (⏱ 1:09:31). כל זוג מסתכם ב-9 — כי התו המשותף נספר פעמיים."
+    },
+    {
+     "id": "intervals-07",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 2,
+     "source_ts": "1:09:42",
+     "given": "סקונדה גדולה",
+     "question_he": "לעלות בסקונדה גדולה זה כמו לרדת ב...?",
+     "options": [
+      "ספטימה קטנה",
+      "ספטימה גדולה",
+      "סקונדה קטנה",
+      "סקסטה קטנה"
+     ],
+     "answer": "ספטימה קטנה",
+     "explain_he": "'סקונדה... ספטימה' (⏱ 1:09:42). 2+7=9, וגדולה הופכת לקטנה."
+    },
+    {
+     "id": "intervals-08",
+     "type": "fill_blank",
+     "skill": "fifth",
+     "difficulty": 2,
+     "source_ts": "1:15:28",
+     "question_he": "השלם את החסר",
+     "text_he": "טריק 'פחות שלוש': כדי למצוא קווינטה יורדים שלושה שמות תווים. מ-G: F, E, ___ — זו הקווינטה של G.",
+     "options": [
+      "D",
+      "C",
+      "E",
+      "B"
+     ],
+     "answer": "D",
+     "explain_he": "'פחות שלוש... מ-G ל-D' (⏱ 1:15:28). ירידה בקוורטה מגיעה לאותו תו כמו עלייה בקווינטה."
+    },
+    {
+     "id": "intervals-09",
+     "type": "mcq",
+     "skill": "fifth",
+     "difficulty": 2,
+     "source_ts": "1:17:08",
+     "question_he": "בטריק 'פחות שלוש' — מה הקווינטה של F?",
+     "options": [
+      "C",
+      "B♭",
+      "D",
+      "A"
+     ],
+     "answer": "C",
+     "explain_he": "F, E, D, C. 'הקווינטה של F זה C, והקווינטה של C יהיה G' (⏱ 1:17:08)."
+    },
+    {
+     "id": "intervals-10",
+     "type": "mcq",
+     "skill": "fifth",
+     "difficulty": 2,
+     "source_ts": "1:18:25",
+     "question_he": "מה הקווינטה של A?",
+     "options": [
+      "E",
+      "D",
+      "F#",
+      "C#"
+     ],
+     "answer": "E",
+     "explain_he": "A, G, F, E — 'AGFE זה הקוורטה' [שחזור] שמביאה לקווינטה (⏱ 1:18:25). אפשר גם לעלות חמישה: A B C D E."
+    },
+    {
+     "id": "intervals-11",
+     "type": "interval_inversion",
+     "skill": "intervals",
+     "difficulty": 3,
+     "source_ts": "1:09:31",
+     "given": "ספטימה גדולה",
+     "question_he": "לעלות בספטימה גדולה זה כמו לרדת ב...?",
+     "options": [
+      "סקונדה קטנה",
+      "סקונדה גדולה",
+      "ספטימה קטנה",
+      "טרצה קטנה"
+     ],
+     "answer": "סקונדה קטנה",
+     "explain_he": "2 ו-7 הם זוג (⏱ 1:09:31), וגדול הופך לקטן: ספטימה גדולה ↔ סקונדה קטנה."
+    },
+    {
+     "id": "intervals-12",
+     "type": "mcq",
+     "skill": "fifth",
+     "difficulty": 3,
+     "source_ts": "1:19:38",
+     "question_he": "למה הקווינטה 'הכי הרמונית'?",
+     "options": [
+      "יחס 3:2 — הגלים נפגשים כל שלושה מחזורים; הכי משלימה שאינה אוקטבה",
+      "כי היא הכי קרובה לשורש",
+      "כי היא תמיד מז'ורית",
+      "כי יש בה את תו הבית פעמיים"
+     ],
+     "answer": "יחס 3:2 — הגלים נפגשים כל שלושה מחזורים; הכי משלימה שאינה אוקטבה",
+     "explain_he": "'האוקטבה מתחברת כל שתיים, הקווינטה מתחברת כל שלוש' (⏱ 1:19:33–1:19:38). האוקטבה דומה מדי — כמעט אותו צליל (⏱ 1:18:44)."
+    },
+    {
+     "id": "intervals-13",
+     "type": "mcq",
+     "skill": "fifth",
+     "difficulty": 3,
+     "source_ts": "1:21:18",
+     "question_he": "ממה בנוי פאוור-קורד?",
+     "options": [
+      "1 ועוד 5",
+      "1 ועוד 3",
+      "1, 3 ו-5",
+      "1 ועוד 4"
+     ],
+     "answer": "1 ועוד 5",
+     "explain_he": "'האקורד הכי פשוט שיש' (⏱ 1:21:18) — שורש וקווינטה, בלי טרצה, ולכן הוא לא מז'ור ולא מינור."
+    },
+    {
+     "id": "intervals-14",
+     "type": "mcq",
+     "skill": "fifth",
+     "difficulty": 3,
+     "source_ts": "1:16:53",
+     "question_he": "'קווינטה' היא גם מרווח וגם דרגה. מה הקווינטה של הדרגה השישית בסולם?",
+     "options": [
+      "הדרגה השלישית",
+      "הדרגה הרביעית",
+      "הדרגה השנייה",
+      "הדרגה החמישית"
+     ],
+     "answer": "הדרגה השלישית",
+     "explain_he": "6 → 7 → 1 → 2 → 3: חמישה שמות, כולל ההתחלה. 'זה יהיה שלישי' (⏱ 1:16:53). בדו: הקווינטה של A היא E."
+    }
+   ],
+   "notes_md": "### מרווחים: היפוך, וקווינטה בשני מובנים ⏱ 1:07:41\n\n- **היפוך מרווחים:** לכל מרווח יש מרווח הפוך שמשלים אותו לאוקטבה. לעלות בקווינטה זה כמו לרדת בקוורטה. טרצה גדולה הופכת לסקסטה קטנה, טרצה קטנה לסקסטה גדולה, וסקונדה לספטימה. הזוגות הם 5 ו-4, 3 ו-6, 2 ו-7, ומרווח גדול הופך לקטן (⏱ 1:08:44–1:09:42). דוגמה: לעלות טרצה גדולה מ-C ל-E זה כמו לרדת סקסטה קטנה (⏱ 1:08:58).\n- **טריק \"פחות שלוש\":** כדי למצוא את הקווינטה של כל תו, יורדים שלושה שמות תווים. זו ירידה בקוורטה, והיא מגיעה לאותו תו כמו עלייה בקווינטה. מ-G יורדים F, E, D, ולכן הקווינטה של G היא D. באותו אופן F נותן C, C נותן G ו-A נותן E (⏱ 1:15:28–1:18:27).\n- **שני מובנים:** \"קווינטה\" היא גם מרווח (מכל תו לכל תו) וגם הדרגה החמישית בסולם (⏱ 1:16:29, וגם ⏱ 20:03). למשל, הקווינטה של הדרגה השישית בסולם היא הדרגה השלישית (⏱ 1:16:53).\n\n### למה הקווינטה הכי הרמונית ⏱ 1:18:38\n\n- הקווינטה היא ההרמוניה הכי \"משלימה\" שהיא לא אוקטבה. האוקטבה דומה מדי, כמעט אותו צליל.\n- הפיזיקה: אוקטבה היא חצי מיתר, ביחס 2:1, והגלים נפגשים כל שני מחזורים. קווינטה היא יחס 3:2, והגלים נפגשים כל שלושה (⏱ 1:19:33–1:20:55). [הערה] בתמלול נאמר \"שליש מהמיתר\". ההרמוניק בשליש המיתר, בסריג 7, אכן נותן קווינטה, אבל אוקטבה מעל.\n- מכאן גם הפאוור-קורד: 1 ועוד 5, \"האקורד הכי פשוט שיש\" (⏱ 1:21:18).",
+   "ask": [
+    {
+     "id": "inversion",
+     "skill": "intervals",
+     "title_he": "היפוך מרווחים",
+     "source_ts": "1:08:44",
+     "concept_he": "לכל מרווח יש מרווח הפוך שמשלים אותו לאוקטבה. הזוגות: 5 ו-4, 3 ו-6, 2 ו-7, ומרווח גדול הופך לקטן.",
+     "deeper_he": "לעלות בקווינטה זה כמו לרדת בקוורטה; טרצה גדולה הופכת לסקסטה קטנה, טרצה קטנה לסקסטה גדולה, וסקונדה לספטימה (⏱ 1:08:44–1:09:42). הסכום של כל זוג הוא 9, כי התו המשותף באמצע נספר פעמיים: C עד G זה 5 (C D E F G), G עד C זה 4 (G A B C), ו-G נספר בשניהם. דוגמה מהשיעור: לעלות טרצה גדולה מ-C ל-E זה כמו לרדת סקסטה קטנה (⏱ 1:08:58). בגיטרה: מהשורש על מיתר 6, הקווינטה למעלה על מיתר 5 שני סריגים מעליו, והקוורטה למטה היא אותו תו, אוקטבה נמוכה יותר.",
+     "faq": [
+      {
+       "q_he": "למה הסכום 9 ולא 8?",
+       "keywords": [
+        "למה",
+        "9",
+        "8",
+        "סכום"
+       ],
+       "answer_he": "כי סופרים את התו האמצעי פעמיים: C עד G זה 5 (C D E F G), ו-G עד C זה 4 (G A B C), ו-G נספר בשניהם (⏱ 1:08:44)."
+      },
+      {
+       "q_he": "מה קורה לגדול ולקטן?",
+       "keywords": [
+        "גדול",
+        "קטן",
+        "הופך"
+       ],
+       "answer_he": "גדול הופך לקטן וקטן לגדול: טרצה גדולה ← סקסטה קטנה (⏱ 1:08:58–1:09:42)."
+      }
+     ]
+    },
+    {
+     "id": "minus-three",
+     "skill": "fifth",
+     "title_he": "טריק \"פחות שלוש\"",
+     "source_ts": "1:15:28",
+     "concept_he": "כדי למצוא את הקווינטה של כל תו, יורדים שלושה שמות תווים. זו ירידה בקוורטה, והיא מגיעה לאותו תו כמו עלייה בקווינטה.",
+     "deeper_he": "מ-G יורדים F, E, D, ולכן הקווינטה של G היא D (⏱ 1:15:28–1:18:27). זה עובד בגלל היפוך המרווחים: לרדת בקוורטה זה כמו לעלות בקווינטה. באותו אופן F נותן C, C נותן G ו-A נותן E. בגיטרה: לא צריך לחשב, החמישית על מיתר 5 שני סריגים מעל השורש.",
+     "faq": [
+      {
+       "q_he": "למה יורדים ולא עולים?",
+       "keywords": [
+        "למה",
+        "יורדים",
+        "עולים"
+       ],
+       "answer_he": "כי שלושה שמות למטה (קוורטה) מגיעים לאותו תו כמו חמישה למעלה (קווינטה), ורק קצר יותר לספור (⏱ 1:15:28)."
+      },
+      {
+       "q_he": "מה הקווינטה של A?",
+       "keywords": [
+        "A",
+        "לה"
+       ],
+       "answer_he": "E: יורדים G, F, E (⏱ 1:15:28–1:18:27)."
+      }
+     ]
+    },
+    {
+     "id": "fifth-two-meanings",
+     "skill": "fifth",
+     "title_he": "קווינטה בשני מובנים",
+     "source_ts": "1:16:29",
+     "concept_he": "\"קווינטה\" היא גם מרווח, מכל תו לכל תו, וגם הדרגה החמישית בסולם.",
+     "deeper_he": "קווינטה כמרווח: מכל תו, חמישה שמות למעלה. קווינטה כדרגה: דרגה 5 בסולם (⏱ 1:16:29, וגם ⏱ 20:03). למשל, הקווינטה של הדרגה השישית בסולם היא הדרגה השלישית (⏱ 1:16:53): ב-C, הקווינטה של A היא E. בגיטרה: בין מיתרים 6→5, 5→4, 4→3 ו-2→1 הקווינטה היא מיתר אחד למעלה ושני סריגים קדימה; ממיתר 3 למיתר 2 זה שלושה סריגים, כי המיתר השני מכוון בטרצה גדולה ולא בקוורטה [הערה].",
+     "faq": [
+      {
+       "q_he": "אז מה הקווינטה של 6?",
+       "keywords": [
+        "6",
+        "שישית",
+        "קווינטה"
+       ],
+       "answer_he": "הדרגה השלישית (⏱ 1:16:53). ב-C: A ← E."
+      },
+      {
+       "q_he": "איך יודעים לאיזה מובן הכוונה?",
+       "keywords": [
+        "איך",
+        "מובן",
+        "כוונה"
+       ],
+       "answer_he": "לפי ההקשר: \"הקווינטה של G\" היא מרווח, ו\"הקווינטה בסולם\" היא דרגה 5 (⏱ 1:16:29)."
+      }
+     ]
+    },
+    {
+     "id": "why-fifth",
+     "skill": "fifth",
+     "title_he": "למה הקווינטה הכי הרמונית: 3:2",
+     "source_ts": "1:18:38",
+     "concept_he": "הקווינטה היא ההרמוניה הכי משלימה שהיא לא אוקטבה. אוקטבה היא יחס 2:1, וקווינטה היא יחס 3:2.",
+     "deeper_he": "האוקטבה דומה מדי, כמעט אותו צליל (⏱ 1:18:38). הפיזיקה: אוקטבה היא חצי מיתר, ביחס 2:1, והגלים נפגשים כל שני מחזורים; קווינטה היא יחס 3:2, והגלים נפגשים כל שלושה (⏱ 1:19:33–1:20:55). [הערה] בתמלול נאמר \"שליש מהמיתר\": ההרמוניק בשליש המיתר, בסריג 7, אכן נותן קווינטה, אבל אוקטבה מעל. בגיטרה: נסה הרמוניק בסריג 12 (אוקטבה) ובסריג 7 (קווינטה מעל האוקטבה).",
+     "example": {
+      "clips": [
+       {
+        "bpm": 60,
+        "strum_every_beat": false,
+        "label_he": "אוקטבה ואז קווינטה",
+        "events": [
+         {
+          "label": "G + G",
+          "notes": [
+           55,
+           67
+          ],
+          "beats": 3
+         },
+         {
+          "label": "G + D",
+          "notes": [
+           55,
+           62
+          ],
+          "beats": 3
+         }
+        ]
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה לא האוקטבה?",
+       "keywords": [
+        "אוקטבה",
+        "למה"
+       ],
+       "answer_he": "כי היא דומה מדי, כמעט אותו צליל. הקווינטה היא ההרמוניה הכי משלימה שהיא לא אוקטבה (⏱ 1:18:38)."
+      },
+      {
+       "q_he": "מה זה 3:2?",
+       "keywords": [
+        "3:2",
+        "יחס",
+        "גלים"
+       ],
+       "answer_he": "יחס התדרים: על כל שלושה מחזורים של התו העליון יש שניים של התחתון, והגלים נפגשים כל שלושה (⏱ 1:19:33–1:20:55)."
+      }
+     ]
+    },
+    {
+     "id": "power-chord",
+     "skill": "fifth",
+     "title_he": "פאוור-קורד: 1 ועוד 5",
+     "quote_he": "האקורד הכי פשוט שיש.",
+     "source_ts": "1:21:18",
+     "concept_he": "מהקווינטה בא גם הפאוור-קורד: 1 ועוד 5, \"האקורד הכי פשוט שיש\".",
+     "deeper_he": "פאוור-קורד הוא שורש וקווינטה, בלי טרצה (⏱ 1:21:18). הוא עובד כי הקווינטה היא המרווח הכי הרמוני אחרי האוקטבה. בלי טרצה הוא לא מז'ור ולא מינור, ולכן הוא מתאים לכל אחד מהם. בגיטרה: G5 הוא G על מיתר 6 בסריג 3 ו-D על מיתר 5 בסריג 5, אותה צורה של \"החמישית כעוגן\".",
+     "example": {
+      "clips": [
+       {
+        "bpm": 70,
+        "strum_every_beat": false,
+        "label_he": "G5",
+        "events": [
+         {
+          "label": "G5",
+          "notes": [
+           43,
+           50,
+           55
+          ],
+          "beats": 4
+         }
+        ]
+       }
+      ]
+     },
+     "fretboard": {
+      "key": "G",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       0,
+       9
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 3,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 5,
+        "kind": "degree",
+        "label": "5"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה אין בו טרצה?",
+       "keywords": [
+        "טרצה",
+        "למה",
+        "אין"
+       ],
+       "answer_he": "כי הוא רק 1 ועוד 5, \"האקורד הכי פשוט שיש\" (⏱ 1:21:18). בלי טרצה הוא לא מז'ור ולא מינור."
+      },
+      {
+       "q_he": "איך מנגנים אותו?",
+       "keywords": [
+        "איך",
+        "מנגנים"
+       ],
+       "answer_he": "השורש על מיתר 6 והקווינטה על מיתר 5 שני סריגים מעליו: אותה צורה של החמישית כעוגן (⏱ 1:21:18, 35:36)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dominant",
+   "title_he": "דומיננטה ודומיננטה משנית",
+   "icon": "⚡",
+   "source_ts": "1:21:45",
+   "concept_he": "האקורד שנבנה על הדרגה החמישית נקרא דומיננטה — זה תפקיד: הוא רוצה לחזור הביתה (⏱ 1:21:45). גם לאקורד אחר יכולה להיות דומיננטה משלו: שאלת אם 'השישית היא הדומיננטה של השנייה', והמורה אישר (⏱ 1:22:04). זו דומיננטה משנית — ככה עובדת הרמוניית הג'אז (⏱ 1:22:17). כדי שהשישית תישמע כדומיננטה הופכים אותה למז'ור או ל-7: בדו, A7 ואז Dm (בונוס).",
+   "exercises": [
+    {
+     "id": "dominant-01",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 1,
+     "source_ts": "1:21:45",
+     "question_he": "מה זה 'דומיננטה'?",
+     "options": [
+      "תפקיד: האקורד שעל הדרגה החמישית, שרוצה לחזור הביתה",
+      "האקורד הכי חזק בשיר",
+      "האקורד הראשון בשיר",
+      "כל אקורד מז'ורי"
+     ],
+     "answer": "תפקיד: האקורד שעל הדרגה החמישית, שרוצה לחזור הביתה",
+     "explain_he": "'הקורד החמישי שנוצר מהטון החמישי נקרא דומיננטה... ודומיננטה זה תפקיד בתוך סולם שאומר שהוא רוצה לחזור הביתה' (⏱ 1:21:45)."
+    },
+    {
+     "id": "dominant-02",
+     "type": "degree_to_chord",
+     "skill": "dominant",
+     "difficulty": 1,
+     "source_ts": "33:23",
+     "key": "G",
+     "degree": 5,
+     "question_he": "בסולם G מז'ור — איזה אקורד יושב על דרגה 5?",
+     "options": [
+      "D",
+      "E",
+      "C",
+      "Dm"
+     ],
+     "answer": "D",
+     "explain_he": "ב-G הדומיננטה היא D: 'האקורד החמישי שלך הוא D' (⏱ 33:23)."
+    },
+    {
+     "id": "dominant-03",
+     "type": "degree_to_chord",
+     "skill": "dominant",
+     "difficulty": 2,
+     "source_ts": "1:21:45",
+     "key": "A",
+     "degree": 5,
+     "question_he": "בסולם A מז'ור — איזה אקורד יושב על דרגה 5?",
+     "options": [
+      "E",
+      "Em",
+      "D",
+      "B"
+     ],
+     "answer": "E",
+     "explain_he": "ב-A: A, B, C#, D, E — הדרגה החמישית היא E, ועליה מז'ור. E היא הדומיננטה של A."
+    },
+    {
+     "id": "dominant-04",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 2,
+     "source_ts": "20:20",
+     "question_he": "למה בדומיננטה (G בדו מז'ור) אין את תו הבית C?",
+     "options": [
+      "כי היא רוצה לחזור הביתה — הבית הוא הפתרון שלה",
+      "סתם מקרה",
+      "כי G הוא מינור",
+      "כי היא בסובדומיננטה"
+     ],
+     "answer": "כי היא רוצה לחזור הביתה — הבית הוא הפתרון שלה",
+     "explain_he": "'בגלל שהוא רוצה פתרון, הוא רוצה את הבית, אז ברור שאין לו את הבית' (⏱ 20:20)."
+    },
+    {
+     "id": "dominant-05",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 2,
+     "source_ts": "20:20",
+     "question_he": "הקשב לשתי הגרסאות. איזו נשארת 'תלויה', בלי לחזור הביתה?",
+     "options": [
+      "א'",
+      "ב'"
+     ],
+     "answer": "ב'",
+     "explain_he": "א' נגמר ב-C, הבית. ב' נגמר ב-G — הדומיננטה — והאוזן עדיין מחכה לפתרון (⏱ 20:20).",
+     "clips": [
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 2
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        }
+       ],
+       "label_he": "א'"
+      },
+      {
+       "bpm": 72,
+       "strum_every_beat": false,
+       "events": [
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "F",
+         "notes": [
+          53,
+          57,
+          60,
+          65
+         ],
+         "beats": 2
+        },
+        {
+         "label": "C",
+         "notes": [
+          48,
+          52,
+          55,
+          60
+         ],
+         "beats": 2
+        },
+        {
+         "label": "G",
+         "notes": [
+          55,
+          59,
+          62,
+          67
+         ],
+         "beats": 2
+        }
+       ],
+       "label_he": "ב'"
+      }
+     ]
+    },
+    {
+     "id": "dominant-06",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 2,
+     "source_ts": "06:15",
+     "question_he": "לאיזו משפחה שייך אקורד דרגה 7 (Bø בדו)?",
+     "options": [
+      "דומיננטה",
+      "טוניקה",
+      "סובדומיננטה",
+      "אף אחת"
+     ],
+     "answer": "דומיננטה",
+     "explain_he": "דומיננטה: 5 ו-7. ה-7 [שחזור] לפי התיאוריה המקובלת; בתמלול נשמע 'החמישית והשלישית' (⏱ 06:15). אחרי שניגנת את Bø אמרת, כנראה, שהוא 'ביקש מאוד להיפתר' (⏱ 25:54), כמו דומיננטה."
+    },
+    {
+     "id": "dominant-07",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 3,
+     "source_ts": "1:22:04",
+     "question_he": "שאלת בשיעור, והמורה אישר: 'השישית היא הדומיננטה של...'",
+     "options": [
+      "השנייה",
+      "הרביעית",
+      "השלישית",
+      "הראשונה"
+     ],
+     "answer": "השנייה",
+     "explain_he": "6 נמצאת קווינטה מעל 2 — כמו ש-5 קווינטה מעל 1. זו דומיננטה משנית, וככה עובדת הרמוניית הג'אז (⏱ 1:22:04–1:22:17)."
+    },
+    {
+     "id": "dominant-08",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 3,
+     "source_ts": "1:22:04",
+     "bonus": true,
+     "question_he": "בונוס: בדו מז'ור, איזה אקורד הוא הדומיננטה המשנית שמוביל ל-Dm?",
+     "options": [
+      "A7",
+      "Am",
+      "G7",
+      "E7"
+     ],
+     "answer": "A7",
+     "explain_he": "A הוא השישית, קווינטה מעל D. כדי שישמע כדומיננטה הופכים אותו למז'ור או לשביעית: A7 → Dm."
+    },
+    {
+     "id": "dominant-09",
+     "type": "mcq",
+     "skill": "dominant",
+     "difficulty": 3,
+     "source_ts": "1:22:04",
+     "bonus": true,
+     "question_he": "בונוס: בסולם G, מה הדומיננטה המשנית של Am (דרגה 2)?",
+     "options": [
+      "E7",
+      "Em",
+      "D7",
+      "B7"
+     ],
+     "answer": "E7",
+     "explain_he": "השישית של G היא Em. כדי שתהיה דומיננטה ל-Am הופכים אותה ל-E7 (E-G#-B-D), ואז Am."
+    }
+   ],
+   "notes_md": "- האקורד שנבנה על הדרגה החמישית נקרא דומיננטה. זה תפקיד: האקורד הזה רוצה לחזור הביתה.\n- גם לאקורד אחר יכולה להיות דומיננטה משלו. שאלת אם \"השישית היא הדומיננטה של השנייה\", והמורה אישר (⏱ 1:21:59–1:22:04). זו דומיננטה משנית, וכך עובדת הרמוניית הג'אז [שחזור] (⏱ 1:22:17). [הערה] כדי שהשישית תישמע כדומיננטה, הופכים אותה למז'ור או לאקורד שביעית. בדו מז'ור: A7 ואחריו Dm.",
+   "ask": [
+    {
+     "id": "dominant-role",
+     "skill": "dominant",
+     "title_he": "הדומיננטה היא תפקיד",
+     "source_ts": "1:21:45",
+     "concept_he": "האקורד שנבנה על הדרגה החמישית נקרא דומיננטה. זה תפקיד: האקורד הזה רוצה לחזור הביתה.",
+     "deeper_he": "בדו מז'ור הדומיננטה היא G, וב-G היא D (⏱ 1:21:45). היא רוצה לחזור הביתה כי אין בה את תו הבית (⏱ 20:02–20:35). השם מתאר מה האקורד עושה במהלך, לא רק איפה הוא יושב. בגיטרה: הדומיננטה על מיתר 5 שני סריגים מעל השורש שעל מיתר 6.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 72,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "נגמר בבית"
+       },
+       {
+        "bpm": 72,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "F",
+          "notes": [
+           53,
+           57,
+           60,
+           65
+          ],
+          "beats": 2
+         },
+         {
+          "label": "C",
+          "notes": [
+           48,
+           52,
+           55,
+           60
+          ],
+          "beats": 2
+         },
+         {
+          "label": "G",
+          "notes": [
+           55,
+           59,
+           62,
+           67
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "נגמר בדומיננטה"
+       }
+      ]
+     },
+     "fretboard": {
+      "key": "C",
+      "strings": [
+       6,
+       5
+      ],
+      "frets": [
+       5,
+       12
+      ],
+      "marks": [
+       {
+        "string": 6,
+        "fret": 8,
+        "kind": "root",
+        "label": "1"
+       },
+       {
+        "string": 5,
+        "fret": 10,
+        "kind": "degree",
+        "label": "5"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה קטע שנגמר בדומיננטה נשמע לא גמור?",
+       "keywords": [
+        "למה",
+        "גמור",
+        "נגמר"
+       ],
+       "answer_he": "כי הדומיננטה רוצה לחזור הביתה, ואין בה את תו הבית (⏱ 20:02–20:35, 1:21:45)."
+      },
+      {
+       "q_he": "דומיננטה זה רק דרגה 5?",
+       "keywords": [
+        "רק",
+        "5",
+        "דרגה"
+       ],
+       "answer_he": "זה תפקיד. האקורד על 5 הוא הדומיננטה של הסולם, אבל גם לאקורד אחר יכולה להיות דומיננטה משלו (⏱ 1:21:59)."
+      }
+     ]
+    },
+    {
+     "id": "secondary-dominant",
+     "skill": "dominant",
+     "title_he": "דומיננטה משנית [הערה]",
+     "source_ts": "1:21:59",
+     "concept_he": "גם לאקורד אחר יכולה להיות דומיננטה משלו. השישית היא הדומיננטה של השנייה: זו דומיננטה משנית.",
+     "deeper_he": "שאלת אם \"השישית היא הדומיננטה של השנייה\", והמורה אישר (⏱ 1:21:59–1:22:04). כך עובדת הרמוניית הג'אז [שחזור] (⏱ 1:22:17). [הערה] כדי שהשישית תישמע כדומיננטה, הופכים אותה למז'ור או לאקורד שביעית: בדו מז'ור, A7 ואחריו Dm. ב-G: E7 ואחריו Am. בגיטרה: השורש של A7 על מיתר 5 פתוח, ושל Dm על מיתר 5 בסריג 5.",
+     "example": {
+      "clips": [
+       {
+        "bpm": 70,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "Am",
+          "notes": [
+           57,
+           60,
+           64,
+           69
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Dm",
+          "notes": [
+           50,
+           53,
+           57,
+           62
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "Am → Dm"
+       },
+       {
+        "bpm": 70,
+        "strum_every_beat": false,
+        "events": [
+         {
+          "label": "A7",
+          "notes": [
+           57,
+           61,
+           64,
+           67,
+           69
+          ],
+          "beats": 2
+         },
+         {
+          "label": "Dm",
+          "notes": [
+           50,
+           53,
+           57,
+           62
+          ],
+          "beats": 2
+         }
+        ],
+        "label_he": "A7 → Dm"
+       }
+      ]
+     },
+     "faq": [
+      {
+       "q_he": "למה A7 ולא Am?",
+       "keywords": [
+        "A7",
+        "Am",
+        "למה"
+       ],
+       "answer_he": "[הערה] בתור דומיננטה צריך טרצה גדולה שמושכת לשורש של Dm, ולכן הופכים את Am ל-A7 (⏱ 1:21:59)."
+      },
+      {
+       "q_he": "זה קשור לג'אז?",
+       "keywords": [
+        "ג'אז",
+        "קשור"
+       ],
+       "answer_he": "כן, כך עובדת הרמוניית הג'אז [שחזור] (⏱ 1:22:17)."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "goal_he": {
+  "text_he": "להגיע למצב שאתה עושה את מה שנגנים עושים מתוך שנים של הרגל, רק שאתה מבין למה הם עושים את זה.",
+  "ts": "38:07"
+ },
+ "homework": [
+  {
+   "id": "hw1",
+   "from": "teacher",
+   "ts": "1:32:30",
+   "practice": {
+    "route": "#/tools/drill?key=G"
+   },
+   "text_he": "**לשחק עם מפת היחסים, רק על שני המיתרים הנמוכים.** המורה הציג את זה כ\"דבר אחרון שתוכל לשחק איתו\". בינתיים לא לעבור למיתרים אחרים."
+  },
+  {
+   "id": "hw2",
+   "from": "teacher",
+   "ts": "33:10",
+   "practice": {
+    "route": "#/tools/drill?key=G"
+   },
+   "text_he": "**לראות, לא לספור:** למצוא דרגה לפי המקום שלה על הצוואר, בלי לחשב חצאי טונים (גם ⏱ 1:31:53)."
+  },
+  {
+   "id": "hw3",
+   "from": "teacher",
+   "ts": "26:35",
+   "practice": {
+    "route": "#/play/2026-10-02/scale-chords"
+   },
+   "text_he": "**אקורדי הסולם ב-G מז'ור:** לבנות את שבעת האקורדים לפי הדרגות, כמו שעשיתם בדו. בסיכום אמרת שצריך לתרגל את האצבוע, במיוחד חצי מוקטן ובר (⏱ 31:02).",
+   "note_he": "בשיעור: תרגיל בכיתה, לא שיעורי בית"
+  },
+  {
+   "id": "hw4",
+   "from": "teacher",
+   "ts": "22:18",
+   "practice": {
+    "route": "#/play/2026-10-02/scale-chords"
+   },
+   "text_he": "**לרשום את אקורדי דו מז'ור, עם מספרי הדרגות מתחת.** מהתמלול לא ברור אם הבקשה הופנתה אליך."
+  },
+  {
+   "id": "hw5",
+   "from": "teacher",
+   "ts": "1:30:04",
+   "practice": {
+    "route": "#/tools/songbook"
+   },
+   "text_he": "**לכתוב שירים לפי דרגות:** מספרים במקום שמות של אקורדים. כנראה המורה קרא לזה \"הכי חשוב\"."
+  },
+  {
+   "id": "hw6",
+   "from": "teacher",
+   "ts": "1:33:03",
+   "locked": true,
+   "text_he": "**לפרוס אקורד לאורך הצוואר.** זה השלב הבא, כנראה CAGED [שחזור]."
+  },
+  {
+   "id": "sg1",
+   "from": "suggestion",
+   "practice": {
+    "route": "#/tools/drill?key=G"
+   },
+   "text_he": "**מפת הדרגות על מיתרים 6 ו-5, בסולם G** (10 דקות ביום). שורש על מיתר 6: 1=G (סריג 3), 2=A (סריג 5), 3=B (סריג 7). על מיתר 5: 4=C (סריג 3), 5=D (סריג 5), 6=E (סריג 7). מטרונום על 60, ארבע פעמות לכל צליל, ואומרים את הדרגה בקול. אחרי שבוע: אותה צורה מ-A (סריג 5) ומ-C (סריג 8). **איך יודעים שזה עובד:** האצבע נוחתת על הדרגה תוך פחות משתי שניות, בלי לספור."
+  },
+  {
+   "id": "sg2",
+   "from": "suggestion",
+   "practice": {
+    "route": "#/tools/player?key=G&prog=1564"
+   },
+   "text_he": "**ארבעת האקורדים וחלק ב'** (10 דקות). 1-5-6-4 ב-G (G – D – Em – C), ארבע פעמות לכל אקורד, מטרונום על 70, ואומרים בקול את הדרגות. אחרי ארבעה סבבים עוברים לחלק ב', 6-4-1-5 (Em – C – G – D). אחר כך ב-A, ב-C וב-D. **איך יודעים שזה עובד:** כל מעבר נופל על הפעמה בלי עצירה."
+  },
+  {
+   "id": "sg3",
+   "from": "suggestion",
+   "practice": {
+    "route": "#/tools/player?key=G&prog=1564&cpb=2"
+   },
+   "text_he": "**מקצב הרמוני מול דאבל טיים** (5 דקות). אותו מהלך על 80, אקורד אחד בתיבה ואז, באותו טמפו, שני אקורדים בתיבה. בסוף: אקורד אחד בתיבה על 160, וזה דאבל טיים. **איך יודעים שזה עובד:** בכל רגע אתה יכול להגיד מה השתנה, המהירות או קצב החלפת האקורדים."
+  },
+  {
+   "id": "sg4",
+   "from": "suggestion",
+   "practice": {
+    "route": "#/play/2026-10-02/relative-minor"
+   },
+   "text_he": "**חידון המינור הטבעי** (3 דקות ביום). לכל סולם מז'ור (כולל B, E, A, C#, E♭, D# ו-C♭): יורדים שני שמות תווים ובודקים שהמרחק בדיוק טון וחצי, ואז מנגנים את המז'ור ואחריו את המינור, האקורד של דרגה 6. **איך יודעים שזה עובד:** כל התשובות נכונות, פחות מ-3 שניות לכל אחת, ועם הכתיב הנכון: G#m של B מז'ור, B#m של D# מז'ור."
+  },
+  {
+   "id": "sg5",
+   "from": "suggestion",
+   "practice": {
+    "route": "#/tools/metronome?bpm=70"
+   },
+   "text_he": "**ה-1 שבחוץ: אלתור בשירה** (10 דקות). לופ C – F – G – C, תיבה לכל אקורד, מטרונום על 70. סבב ראשון: שרים רק C ומקשיבים איפה זה מתנגש (על G). סבב שני: שרים צליל מתוך האקורד שמתנגן עכשיו. **איך יודעים שזה עובד:** בסבב השני אין התנגשויות."
+  }
+ ],
+ "open_questions": [
+  {
+   "text_he": "איך מובילים ג'אם, במקום תמיד לתת לנגן האחר להוביל?",
+   "ts": "1:13:39"
+  },
+  {
+   "text_he": "המינור הטבעי בנגינה: צורות של הסולם על הצוואר, ואיך מאלתרים בו. בשיעור עברתם רק על התיאוריה."
+  },
+  {
+   "text_he": "איפה הידיעה של הקווינטה עוזרת בנגינה בפועל?",
+   "ts": "1:15:49"
+  },
+  {
+   "text_he": "**C♭ מינור:** בשיעור יצא שהמז'ור המקביל שלו הוא E♭ מז'ור (⏱ 1:07:19). לפי הכלל של טון וחצי למעלה יוצא E𝄫 מז'ור, שנשמע כמו D מז'ור. כנראה התבלבלתם עם C מינור, שהמקביל שלו הוא E♭ מז'ור. כדאי לבדוק עם המורה."
+  },
+  {
+   "text_he": "ה-1 על Dm ועל Em: עובד או לא? (ראו את ההערה ביחידה \"לנגן ביחד\")"
+  },
+  {
+   "text_he": "איך קוראים לשני כלים שמנגנים יחד שתי מלודיות? השאלה לא נענתה. אולי \"קונטרפונקט\".",
+   "ts": "13:54"
+  },
+  {
+   "text_he": "המיתר השני (B) \"שובר את המוח\", כנראה כי הכיוון בקוורטות נשבר בו [שחזור]. איך לחשוב עליו כשמחפשים דרגות?",
+   "ts": "36:46"
+  },
+  {
+   "text_he": "בתחילת השיעור ביקשת שלפני שהמורה נותן שיעורי בית, הוא יוודא שאתה יודע לבצע אותם. אפשר לבקש חמש דקות בסוף כל שיעור כדי לעבור על התרגילים.",
+   "ts": "03:08"
+  }
+ ],
+ "chords_table_md": "| אקורד | ⏱ | בהקשר |\n|---|---|---|\n| סולם G מז'ור | ⏱ 04:26 | דוגמה למיקום הדרגות על הצוואר, משורש על מיתר 6 |\n| 1, 4, 5 (מז'ור) | ⏱ 04:41 | שלושת האקורדים המז'וריים בכל סולם מז'ור |\n| 2 במקום 4 | ⏱ 05:41 | תחליף בתוך משפחת הסובדומיננטה |\n| 1, 6, 3 | ⏱ 06:02 | משפחת הטוניקה |\n| D על שלושת המיתרים הגבוהים | ⏱ 11:47 | מעל האקורד של המורה, נותן 9, 11# ו-13 [שחזור] |\n| C, F | ⏱ 18:00 | ההרמוניה ברקע לאלתור בשירה |\n| G7, Am, Bø | ⏱ 22:30 | אקורדי דו מז'ור לרישום עם המספרים מתחת |\n| C – Dm – Em – F – G – Am – Bø | ⏱ 24:39 | אקורדי דו מז'ור, לאט ועם השתקות |\n| maj7, 7, ø, °7 | ⏱ 25:40 | ארבעת סוגי אקורדי השביעית |\n| G – Am – Bm – C – D – Em – F#ø | ⏱ 26:35 | אותו תרגיל ב-G מז'ור |\n| G – D – Em – C | ⏱ 32:26–33:43 | 1-5-6-4 ב-G [הערה] Em ו-C הושלמו לפי הדרגות |\n| E (טעות) | ⏱ 32:52 | ניחשת E כחמישית של G, והתשובה היא D |\n| A פתוח | ⏱ 37:02 | \"אקורד יפה פתוח\", נוח להרמוניות |\n| A – E – F#m – D | ⏱ 38:50 | 1-5-6-4 ב-A בשמות דרגות [הערה] F#m ו-D הושלמו לפי הדרגות |\n| 6-4-1-5 (Em – C – G – D) | ⏱ 43:17 | חלק ב' לשיר (\"המקדונלדס\"), הודגם ב-G |\n| Em, Bm, G#m, C#m, F#m, A#m, Cm | ⏱ 51:18–56:27 | חידון המינור הטבעי (הטבלה ביחידה \"המינור הטבעי\") |\n| B#m | ⏱ 56:48, 58:29 | המינור של D# מז'ור. המורה ניגן אותו, ונשמע כמו Cm |\n| Cm עם תשיעית | ⏱ 57:18–57:59 | הצורה הנוחה: תשיעית ומיתר מושתק במקום Cm פתוח |\n| A♭m | ⏱ 1:05:12 | המינור של C♭ מז'ור |\n| Em – C – G – D (1-6-3-7) | ⏱ 1:11:44 | 6-4-1-5 של G, כשסופרים מהמינור |\n| פאוור-קורד (1 ועוד 5) | ⏱ 1:21:18 | \"האקורד הכי פשוט\", בהסבר על הקווינטה |\n| A7 ואחריו Dm | ⏱ 1:21:59 | השישית כדומיננטה של השנייה [הערה] הדוגמה בדו נוספה |\n| צורת D | ⏱ 1:33:28 | היוצא מן הכלל בצורות של מיתר 4 (CAGED [שחזור]) |",
+ "notes_footer_md": "נבנה מתמלול אוטומטי (whisper) של עברית רועשת. הפרדת הדוברים נכשלה, ולכן מי אמר מה הוסק מהתוכן, ובמקומות לא ודאיים כתוב \"כנראה\". מונחים שתוקנו לפי ההקשר מסומנים [שחזור], והערות תיאוריה שנוספו מסומנות [הערה]. חותמות הזמן לקוחות מהתמלול, וייתכן הפרש של כמה שניות מההקלטה."
+}
