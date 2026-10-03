@@ -1,7 +1,7 @@
 // sw.js: offline support (DESIGN §19).
 // SHELL is a content hash of SHELL_FILES. `python3 tools/check.py` fails when it is stale and
 // `python3 tools/check.py --fix` rewrites it, so a shell edit can never ship without reaching returning users.
-const SHELL = "gl-shell-da3aefe82d";
+const SHELL = "gl-shell-53dbbae472";
 const DATA = "gl-data-v1";
 const FONTS = "gl-fonts-v1";
 const SHELL_FILES = [

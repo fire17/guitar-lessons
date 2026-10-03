@@ -125,7 +125,7 @@ export function renderMetronome(main, query) {
       h("div", { class: "tool-row" }, h("span", { class: "lbl" }, "פעמות בתיבה"), seg([[2, "2"], [3, "3"], [4, "4"]], 4, (v) => { m.beats = v; paintDots(); }, "פעמות בתיבה")),
       h("div", { class: "tool-row" }, toggle("הדגשה על פעמה 1", true, (v) => { m.accent = v; }), tap),
       startBtn,
-      h("p", { class: "muted small", html: richText("דאבל טיים: אותו דבר בדיוק, פי שניים מהר, למשל מ-80 ל-160 BPM (⏱ 46:41).") })));
+      h("p", { class: "muted small", html: richText("דאבל טיים: הפעמה והסטראמינג פי שניים מהר, למשל מ-80 ל-160 BPM (⏱ 48:50), אבל האקורדים לא חייבים להתחלף מהר יותר (⏱ 48:40). מקצב הרמוני: אותה פעמה, יותר אקורדים בתיבה.") })));
   main.appendChild(page);
 }
 
